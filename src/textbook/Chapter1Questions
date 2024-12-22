@@ -1,0 +1,148 @@
+Chapter 1
+1.2.1 What are hardware and software?
+Hardware = the physical components of the computer which complete the commands of the program
+Software = the program which gives the computer the commands to complete tasks.
+
+1.2.2 List the five major hardware components of a computer.
+CPU, Memory, Inputs, Output, Storage devices, Communication devices
+
+1.2.3 What does the acronym CPU stand for? What unit is used to measure CPU speed?
+Central processing unit → measured in hertz
+
+1.2.4 What is a bit? What is a byte?
+A bite is a unit of data that represents a single value in binary.
+A byte is 8 bits.
+
+1.2.5 What is memory for? What does RAM stand for? Why is memory called RAM?
+Memory = computer’s work area for executing a program.
+RAM = random access memory
+Memory is called RAM because it stores all of the data for the processing of information, but then discards it when the computer is turned off.
+
+1.2.6 What unit is used to measure memory size? What unit is used to measure disk size?
+Memory size = measured in gigabytes
+
+1.2.7 What is the primary difference between memory and a storage device?
+Memory is the computer’s internal processing center whereas a storage device saves information externally
+
+1.3.1 What language does the CPU understand?
+Binary
+
+1.3.2 What is an assembly language? What is an assembler?
+An assembly language is the language used to translate binary into more understandable low level language prompts.
+An assemblar is what assembles low level language into binary for the computer to understand. They are platform dependent.
+
+1.3.3 What is a high-level programming language? What is a source program?
+A high level language is a platform independent language used to write programs.
+Source programs are programs written in a high level language.
+
+1.3.4 What is an interpreter? What is a compiler?
+An interpreter reads one statement from source code, translates it into machine code and runs it right away.
+A compiler translates the whole program into a machine code file
+
+1.3.5 What is the difference between an interpreted language and a compiled language?
+
+1.4.1 What is an operating system? List some popular operating systems.
+An operating system is a program that runs on a computer which controls the way the computer operates.
+Popular operating systems = Windows, Mac, Linux
+
+1.4.2 What are the major responsibilities of an operating system?
+Scheduling operations to run, controlling and monitoring what happens in the system (i.e. mouse click, keyboard inputs, keeping track of files etc), allocating system resources for programmers to
+
+1.4.3 What are multiprogramming, multithreading, and multiprocessing?
+Multi programming → allows multiple programs to run at the same time on the same CPU by managing the cpu’s idle time
+Multithreading → allows multiple tasks to run in the same program
+Multiprocessing → allows multiple programs to run on multiple processors.
+
+
+1.5.1 Who invented Java? Which company owns Java now?
+Java was invented by James Goslin and Sun Microsystems. Oracle now owns java.
+
+1.5.2 What is a Java applet?
+A small application or program run from a web browser
+
+1.5.3 What programming language does Android use?
+Java
+
+1.6.1 What is the Java language specification?
+A set of rules of the syntax and semantics of the language
+
+1.6.2 What does JDK stand for? What does JRE stand for?
+Java Development Toolkit → a set of separate programs invoked from the command line for compiling, running and testing programs
+Java Runtime Environment → program for running Java programs
+
+1.6.3 What does IDE stand for?
+Integrated Development Environment → where you write, compile, build and debug programs
+
+1.6.4 Are tools like NetBeans and Eclipse different languages from Java, or are they dialects or extensions of Java?
+They’re tools (IDEs) used for writing, compiling, building and debugging java programs
+
+1.7.1 What is a keyword? List some Java keywords.
+A keyword is a special word with special meaning that cannot be used anywhere else in the program
+Main, class, static, void
+
+1.7.2 Is Java case sensitive? What is the case for Java keywords?
+Yes - i.e. you cannot replace private static main with private static Main
+
+1.7.3 What is a comment? Is the comment ignored by the compiler? How do you denote a comment line and a comment paragraph?
+A comment is a way of communicating with other programmers. It is ignored by the compiler.
+Comment line = //
+Comment paragraph = /* */
+
+1.7.4 What is the statement to display a string on the console?
+System.out.println
+
+1.7.5 Show the output of the following code:
+
+public class Test {
+ public static void main(String[] args) {
+ System.out.println("3.5 * 4 / 2 – 2.5 is ");
+System.out.println(3.5 * 4 / 2 – 2.5);
+   }
+}
+
+3.5 * 4 / 2 – 2.5 is 4.5
+
+
+1.8.1 What is the Java source filename extension, and what is the Java bytecode filename extension?
+Java source filename extension = .java
+Java bytecode file extension = .class
+
+1.8.2 What are the input and output of a Java compiler?
+Input = source code, output = bytecode
+
+1.8.3 What is the command to compile a Java program?
+javac
+
+1.8.4 What is the command to run a Java program?
+Java + classname
+
+1.8.5 What is the JVM?
+Java virtual machine → an interpreter of the bytecode from the compiler
+
+1.8.6 Can Java run on any machine? What is needed to run Java on a computer?
+Yes, as long as the machine has a jVM installed
+
+1.8.7 If a NoClassDefFoundError occurs when you run a program, what is the cause of the error?
+It means that it couldn’t find the class that was specified.
+
+1.8.8 If a NoSuchMethodError occurs when you run a program, what is the cause of the error?
+The class does not have a main method, or the signature of the main method is incorrect
+
+1.10.1 What are syntax errors (compile errors), runtime errors, and logic errors?
+Syntax errors are errors with the syntax which prevent the program from compiling → due to errors in code constructions
+Runtime errors occur after the program has already compiled and cause a program to terminate abnormally
+Logic errors are errors due to poor logical thinking → program doesn't perform the way it was intended to
+
+1.10.2 Give examples of syntax errors, runtime errors, and logic errors.
+Syntax error → no closing bracket, no closing string, missing return type in method
+Runtime error → arithmetic error (division by 0), NPE
+Logic error → using integers instead of floats
+
+1.10.3 If you forget to put a closing quotation mark on a string, what kind of error will be raised?
+Syntax error
+
+1.10.4 If your program needs to read integers, but the user entered strings, an error would occur when running this program. What kind of error is this?
+Run time error
+
+1.10.5 Suppose you write a program for computing the perimeter of a rectangle and you mistakenly write your program so it computes the area of a rectangle. What kind of error is this?
+Logic error

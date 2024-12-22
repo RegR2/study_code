@@ -1,0 +1,34 @@
+Functinal interface
+
+Normal interface that has 3 mandatory attributes and one optional
+
+1. only 1 abstract method, all others are default (SAM - single abstract method)
+2. Default methods
+3. static methods
+4. has to be annotated with annotation @FunctionalInterface - optional.
+If you have it, but the first 3 are not present then you will have an error in compilation.
+
+static are not tied to the instance method. To access them have to create a new instance of the object.
+default - can use the method as is or can override it
+
+functional itnerfaces are needed in order to be able to use them as lambda functions
+
+lambda is an implementation of a functional method's abstract method - shows what the definition of the abstract method is
+and then we can implement that method
+
+e.g. IntProcessor i1 = (int input) -> input * 3;
+i1.process(7); (this is the abstract method and was defined by the lambda).
+
+zapusk of the lambda function occurs only when something is passed through to the lambda
+
+4 main functional interface:
+- Function
+- Consumer
+- Predicate -> test something --> variation of function
+- Supplier
+
+Can't create an abstract method in a functional interface which is both void and doens't accept anything
+because it basically doesn't do anything so is a useless function
+
+Runnable -> to send a task to another thread --> for concurrency
+- functional interface - the only one who doens't accept anything but returns a void

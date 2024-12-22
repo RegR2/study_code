@@ -1,0 +1,243 @@
+Chapter 2
+
+2.2.1 Identify and fix the errors in the following code:
+        public class Test {
+            public void main(string[] args) {
+                double i = 50.0;
+                double k = i + 50.0;
+                double j = k + 1;
+
+                System.out.println("j is " + j + " and
+                        k is" + k);
+            }
+        }
+
+        public class Test {
+            public static void main (String[] args) {
+                double i = 50.0;
+                double k = i + 50.0;
+                double j = k + 1;
+
+                System.out.println("j is " + j + " and k is " + k);
+            }
+        }
+
+2.3.1 How do you write a statement to let the user enter a double value from the keyboard? What happens if you entered 5a when executing the following code?
+double radius = input.nextDouble();
+
+Scanner input = new Scanner(System.in);
+double value = input.nextDouble();
+
+if you enter 5a, you will get an error because a is a string and not a double.
+
+2.3.2 Are there any performance differences between the following two import statements?
+import java.util.Scanner;
+import java.util.*;
+
+no
+
+2.4.1 Which of the following identifiers are valid? Which are Java keywords?
+miles, Test, a++, ––a, 4#R, $4, #44, apps
+class, public, int, x, y, radius
+
+miles, Test, $4, apps, x, y, radius
+
+
+2.6.1 Identify and fix the errors in the following code:
+1 public class Test {
+2 public static void main(String[] args) {
+3 int i = j = k = 2;
+4 System.out.println(i + " " + j + " " + k);
+5 }
+
+only i has been initialized --> j and k havne't been. Need to initialize j and k.
+fix:
+int i, j;
+int k=2;
+
+i = j = k;
+System.out.println(i + " " + j + " " + k);
+
+
+2.7.1 What are the benefits of using constants? Declare an int constant SIZE with
+value 20.
+benefits = only have to fix in one place, easy to understand what value is, easy to reuse, makes the program easy to read
+
+final int SIZE = 20;
+
+2.7.2 Translate the following algorithm into Java code:
+Step 1: Declare a double variable named miles with an initial value 100.
+Step 2: Declare a double constant named KILOMETERS_PER_MILE with value
+1.609.
+Step 3: Declare a double variable named kilometers, multiply miles and
+KILOMETERS_PER_MILE, and assign the result to kilometers.
+Step 4: Display kilometers to the console.
+What is kilometers after Step 4?
+
+    public static void main(String[] args) {
+        double miles = 100;
+        final double KILOMETERS_PER_MILE = 1.609;
+        double kilometers = miles * KILOMETERS_PER_MILE;
+
+        System.out.println("kms = " + kilometers);
+
+    }
+output = 160.9
+
+
+2.9.1 Find the largest and smallest byte, short, int, long, float, and double. Which
+of these data types requires the least amount of memory?
+largest amount of memory = double
+smallest amount of memory byte
+
+
+2.9.2 Show the result of the following remainders:
+ 56 % 6 = 2
+ 78 % -4 = 2
+-34 % 5 = -4
+-34 % -5 = -4
+ 5 % 1 = 0
+ 1 % 5 = 1
+
+2.9.3 If today is Tuesday, what will be the day in 100 days?
+(2 + 100) %7 = Thursday
+
+
+2.9.4 What is the result of 25 / 4? How would you rewrite the expression if you wished
+the result to be a floating-point number?
+6
+would rewrite as 25.0/4 to get the floating point.
+
+2.9.5 Show the result of the following code:
+System.out.println(2 * (5 / 2 + 5 / 2)); = 8
+System.out.println(2 * 5 / 2 + 2 * 5 / 2); = 10
+System.out.println(2 * (5 / 2)); = 4
+System.out.println(2 * 5 / 2);= 5
+
+
+2.9.6 Are the following statements correct? If so, show the output.
+System.out.println("25 / 4 is " + 25 / 4); = 25 / 4 is 6
+System.out.println("25 / 4.0 is " + 25 / 4.0); = 25 / 4.0 is 6.25
+System.out.println("3 * 2 / 4 is " + 3 * 2 / 4); = 3 * 2 / 4 is 1
+System.out.println("3.0 * 2 / 4 is " + 3.0 * 2 / 4); 3.0 * 2 / 4 is 1.5
+
+
+2.9.7 Write a statement to display the result of 2^3.5
+System.out.println("2^3.5 is " + Math.pow(2, 3.5));
+
+2.9.8 Suppose m and r are integers. Write a Java expression for mr^2 to obtain a
+floating-point result.
+1.0 * m * (r * r);
+
+2.10.1 How many accurate digits are stored in a float or double type variable?
+float = 6-9, double = 15-17
+
+2.10.2 Which of the following are correct literals for floating-point numbers?
+all can be used
+12.3,
+12.3e+2 --> 1230.0
+23.4e-2 --> 0.234
+-334.4,
+20.5,
+39F --> 39.0
+40D --> 40.0
+
+2.10.3 Which of the following are the same as 52.534?
+5.2534e+1, 0.52534e+2, 525.34e-1, 5.2534e+0
+5.2534e+1, 0.52534e+2, 525.34e-1
+
+2.10.4 Which of the following are correct literals?
+5_2534e+1, _2534, 5_2, 5_
+5_2534e+1 & 5_2
+
+
+2.12.1
+a. 4.0 / (3 * (r + 34) ) - 9.0 * (a + b * c) + (3 + d * (2 + a)) / (a + b * d);
+b. 5.5 * Math.pow(r + 2.5, 2.5 + t)
+
+2.13.1 How do you obtain the current second, minute, and hour?
+seconds = (System.currentTimeMillis() / 1000) % 60
+minutes = (((System.currentTimeMillis() / 1000) / 60) % 60
+hour = ((System.currentTimeMillis() / 1000) / 60) / 60) % 24
+
+2.14.1 Show the output of the following code:
+double a = 6.5;
+a += a + 1;
+System.out.println(a);
+a = 6;
+a /= 2;
+System.out.println(a);
+
+14.0
+3.0
+
+2.15.1 Which of these statements are true?
+a. Any expression can be used as a statement.
+b. The expression x++ can be used as a statement.
+c. The statement x = x + 5 is also an expression.
+d. The statement x = y = x = 0 is illegal.
+
+b and c are true
+
+2.15.2 Show the output of the following code:
+int a = 6;
+int b = a++;
+System.out.println(a);
+System.out.println(b);
+a = 6;
+b = ++a;
+System.out.println(a);
+System.out.println(b);
+
+7
+6
+
+7
+7
+
+2.16.1 Can different types of numeric values be used together in a computation?
+yes
+
+2.16.2 What does an explicit casting from a double to an int do with the fractional part
+of the double value? Does casting change the variable being cast?
+drops the fractional part. casting doens't change the variable being cast
+
+2.16.3 Show the following output:
+float f = 12.5F;
+int i = (int)f;
+System.out.println("f is " + f);
+System.out.println("i is " + i);
+
+12.5
+12
+
+2.16.4 If you change (int)(tax * 100) / 100.0 to (int)(tax * 100) / 100 in line
+11 in Listing 2.8, what will be the output for the input purchase amount of 197.556?
+11
+
+2.16.5 Show the output of the following code:
+double amount = 5;
+System.out.println(amount / 2);
+System.out.println(5 / 2);
+
+2.5
+2
+
+2.16.6 Write an expression that rounds up a double value in variable d to an integer.
+(int)(d + 0.5) from textbook
+
+
+2.19.1 Can you declare a variable as int and later redeclare it as double?
+no
+
+2.19.2 What is an integer overflow? Can floating-point operations cause overflow?
+when you try and store a number as an int that is larger than what an int can store.
+floating point operations will not cause an overflow error
+
+2.19.3 Will overflow cause a runtime error?
+no
+
+2.19.4 What is a round-off error? Can integer operations cause round-off errors? Can
+floating-point operations cause round-off errors?
+the difference between the calculated approximation of the number and the actual mathematical value
+Integer operations will not cause rounding error. Floating-point operations may cause rounding error.

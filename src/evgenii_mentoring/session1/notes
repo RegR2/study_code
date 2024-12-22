@@ -1,0 +1,23 @@
+Session 1 - 15/12/2024
+
+Difference between abstract classes and interface
+
+Abstract class → can’t create it
+Has to have abstract methods → we have to implement them for a concrete class
+Doesn’t have constructors
+
+
+Concrete class → create it and can add it to the abstract class
+
+Interface → give a list of methods which the object
+Interface creates only the signatures of the methods
+
+Signature of a method → what the method returns, name of the method and the params of the methods
+
+Modificators → public/private + static/abstract etc
+
+Main difference between abstract class and interface:
+Abstract class defines the common parameters
+Interface defines the common behaviours/ methods
+
+
