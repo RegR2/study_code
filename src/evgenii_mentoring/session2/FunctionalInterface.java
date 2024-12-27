@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Main {
+public class FunctionalInterface {
     public static void main(String[] args) {
         Product coffee = new Product("coffee", 13.00, "food");
         Product muffin = new Product("muffin", 15.00, "food");

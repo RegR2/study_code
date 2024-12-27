@@ -1,5 +1,6 @@
 package evgenii_mentoring.session2;
 
+import java.lang.FunctionalInterface;
 import java.util.List;
 
 @FunctionalInterface
