@@ -44,8 +44,9 @@ public class StreamApi {
 
         System.out.println(" ");
 
-        int numberOfSales = salesRecordList.size();
-        System.out.println("average sale amount = " + totalSalesAmount / numberOfSales);
+        salesRecordList.forEach(record -> {
+            System.out.println("Average sale per transaction with id " + record.transactionId + " is " + record.salesAmount / record.quantity );
+        });
 
         System.out.println(" ");
 
