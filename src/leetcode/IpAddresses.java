@@ -1,71 +1,74 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class IpAddresses {
     public static void main(String[] args) {
-        List<String> validIpAddresses = restoreIpAddresses("25525511135");
+        List<String> validIpAddresses = restoreIpAddresses("101023");
         System.out.println(validIpAddresses);
     }
 
     public static List<String> restoreIpAddresses(String s) {
-        List<String> returnArray = new ArrayList<>();
-
-        recursive("", returnArray, s, 0, 0);
-
-        return returnArray;
-    }
-
-    private static void recursive(String currentString, List<String> returnArray, String s, int index, int initialIndex) {
-        String[] splitString = currentString.split("\\.");
-
-        String subString = splitString[splitString.length - 1];
-        if (subString.length() == 3 && Integer.parseInt(subString) > 255) {
-            subString = subString.substring(0, subString.length() - 1);
-
-            currentString = "";
-            for (int i = 0; i <= splitString.length - 2; i++) {
-                currentString += splitString[i] + ".";
-            }
-
-            currentString += subString + ".";
-            index--;
-        } else if ((subString.length() == 3 && Integer.parseInt(subString) <= 255) || subString.equals("0")) {
-            currentString += ".";
+        if (s.length() > 12 || s.length() < 4) {
+            return new ArrayList<>();
         }
 
-        for (int i = index; i <= s.length() - 1; i++) {
-            currentString = currentString + s.charAt(i);
-            recursive(currentString, returnArray, s, i +1, initialIndex);
-            if (isIpValid(currentString)) {
-                returnArray.add(currentString);
-            }
+        List<String> initialSubstringArray = new ArrayList<>();
+         for (int i=0; i <= 3; i++) {
+             String substring = s.substring(0, i);
+             if (isIpSubstringValid(substring)) {
+                 initialSubstringArray.add(substring);
+             }
+         }
 
-            currentString = s.substring(0, initialIndex +1) + ".";
-            i = initialIndex;
-            initialIndex++;
-        }
+        return recursive(initialSubstringArray, s , 3);
     }
 
-    private static boolean isIpValid(String ip) {
-        String[] splitip = ip.split("\\.");
+    private static List<String> recursive(List<String> returnArray, String s, int numberOfDotsRemaining) {
+        if (numberOfDotsRemaining == 0) {
+            return returnArray;
+        }
 
-        if (splitip.length == 4) {
-            for (String ipString : splitip) {
-                if (Integer.parseInt(ipString) > 255) {
-                    return false;
+        Set<String> newReturnArray = new HashSet<>();
+
+        for (String subString : returnArray) {
+            int startingIndex = Math.max(subString.length() - (3 - numberOfDotsRemaining), 0);
+            int endIndex = startingIndex + 3;
+            int numberToCheck = 0;
+
+            for (int i=startingIndex; i <= endIndex - 1; i++) {
+                String substring;
+
+                if (numberOfDotsRemaining == 1) {
+                   substring = s.substring(startingIndex);
+                } else {
+                    substring = s.substring(startingIndex, Math.min(startingIndex + numberToCheck + 1, s.length()));
                 }
 
-                if (ipString.length() > 1 && ipString.charAt(0) == '0') {
-                    return false;
+                if (isIpSubstringValid(substring)) {
+                    newReturnArray.add(subString + "." + substring);
+                    numberToCheck++;
                 }
             }
+        }
 
-            return true;
-        } else {
+        return recursive(newReturnArray.stream().toList(), s,  --numberOfDotsRemaining);
+    }
+
+    private static boolean isIpSubstringValid(String ip) {
+        if (ip.isEmpty()) {
             return false;
+        } else if (ip.startsWith("0") && ip.length() == 1) {
+            return true;
+        } else if (ip.startsWith("0") && ip.length() > 1) {
+            return false;
+        } else if (Integer.parseInt(ip) > 255) {
+            return false;
+        } else {
+            return true;
         }
-
     }
 }
