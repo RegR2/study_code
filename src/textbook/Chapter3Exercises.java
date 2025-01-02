@@ -22,8 +22,23 @@ public class Chapter3Exercises {
 //        rockPaperScissors();
 //        costOfShipping();
 //        perimeterOfTriange();
-        windChill();
+//        windChill();
+//        dayOfTheWeek();
+//        pointInACircle();
+//        pointInARectangle();
+//        pickACard();
+//        intersectingPoint();
+//        isDivisible();
+//        pointInATriangle();
+//        twoRectangles();
+//        twoCircles();
+//        currentTime();
+//        currencyExchange();
+//        pointPosition();
+//        compareCosts();
+        pointOnLineSegment();
     }
+
 
     private static void checkIfLeapYear() {
         Scanner input = new Scanner(System.in);
@@ -508,7 +523,7 @@ public class Chapter3Exercises {
             System.out.println("The computer is " + getGuess(random) + ". You are " + getGuess(user) + " too. It is a draw");
         } else if (random < user && (random != 0 && user != 2)) {
             System.out.println("The computer is " + getGuess(random) + ". You are " + getGuess(user) + " You won");
-        } else if (user < random && (user != 0 && random != 2)){
+        } else if (user < random && (user != 0 && random != 2)) {
             System.out.println("The computer is " + getGuess(random) + ". You are " + getGuess(user) + "  Computer won");
         } else if (random == 0 && user == 2) {
             System.out.println("The computer is " + getGuess(random) + ". You are " + getGuess(user) + " Computer won");
@@ -518,7 +533,7 @@ public class Chapter3Exercises {
     }
 
     private static String getGuess(int guess) {
-        return switch(guess) {
+        return switch (guess) {
             case 0 -> "paper";
             case 1 -> "scissors";
             case 2 -> "rock";
@@ -534,14 +549,14 @@ public class Chapter3Exercises {
         double weight = input.nextDouble();
 
         if (weight > 0.0 && weight <= 1.0) {
-         System.out.println("Shipping cost is 3.5");
+            System.out.println("Shipping cost is 3.5");
         } else if (weight > 1.0 && weight <= 3.0) {
             System.out.println("Shipping cost is 5.5");
         } else if (weight > 3.0 && weight <= 10.0) {
             System.out.println("Shipping cost is 8.5");
         } else if (weight > 10.5 && weight <= 20) {
             System.out.println("Shipping cost is 20");
-        } else if (weight > 20.0){
+        } else if (weight > 20.0) {
             System.out.println("The package cannot be shipped.");
         } else {
             System.out.println("invalid input");
@@ -582,6 +597,329 @@ public class Chapter3Exercises {
             double windChill = 35.74 + (0.6215 * temperature) - (35.75 * Math.pow(windSpeed, 0.16)) + 0.4275 * (temperature * Math.pow(windSpeed, 0.16));
 
             System.out.println("The wind chill index is  " + windChill);
+        }
+    }
+
+    //3.21
+    private static void dayOfTheWeek() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter year: (e.g., 2012): ");
+        int year = input.nextInt();
+
+        System.out.print("Enter month: 1−12: ");
+        int m = input.nextInt();
+
+        System.out.print("Enter the day of the month: 1−31: ");
+        int q = input.nextInt();
+
+        if (m == 1 || m == 2) {
+            m = m == 1 ? 13 : 14;
+            --year;
+        }
+
+        int j = year / 100;
+        int k = year % 100;
+
+        int dayOfTheWeek = (q + (26 * (m + 1)) / 10 + k + (k / 4) + (j / 4) + (5 * j)) % 7;
+
+        String day = getDay21(dayOfTheWeek);
+
+        System.out.println("Day of the week is " + day);
+    }
+
+    private static String getDay21(int day) {
+        return switch (day) {
+            case 0 -> "Saturday";
+            case 1 -> "Sunday";
+            case 2 -> "Monday";
+            case 3 -> "Tuesday";
+            case 4 -> "Wednesday";
+            case 5 -> "Thursday";
+            case 6 -> "Friday";
+            default -> "";
+        };
+    }
+
+    //3.22
+    private static void pointInACircle() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a point with two coordinates: ");
+
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+
+        double distance = Math.pow((Math.pow((x - 0.0), 2)) + (Math.pow((y - 0.0), 2)), 0.5);
+
+        if (distance <= 10.0) {
+            System.out.println("Point (" + x + ", " + y + ") is in the circle");
+        } else {
+            System.out.println("Point (" + x + ", " + y + ") is not in the circle");
+        }
+    }
+
+    //3.23
+    private static void pointInARectangle() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a point with two coordinates: ");
+
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+
+        if (Math.abs(x) <= (10.0 / 2) && Math.abs(y) <= (5.0 / 2)) {
+            System.out.println("Point (" + x + ", " + y + ") is in the rectangle");
+        } else {
+            System.out.println("Point (" + x + ", " + y + ") is not in the rectangle");
+        }
+    }
+
+    //3.24
+    private static void pickACard() {
+        int card = (int) (Math.random() * 13) + 1;
+        int suit = (int) (Math.random() * 4) + 1;
+
+        String cardString = switch (card) {
+            case 1 -> "Ace";
+            case 11 -> "Jack";
+            case 12 -> "Queen";
+            case 13 -> "King";
+            default -> String.valueOf(card);
+        };
+
+        String suitString = switch (suit) {
+            case 1 -> "Clubs";
+            case 2 -> "Diamonds";
+            case 3 -> "Hearts";
+            case 4 -> "Spades";
+            default -> String.valueOf(card);
+        };
+
+        System.out.println("The card you picked is " + cardString + " of " + suitString);
+    }
+
+    //3.25
+    private static void intersectingPoint() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter x1, y1, x2, y2, x3, y3, x4, y4: ");
+
+        double x1 = input.nextDouble();
+        double y1 = input.nextDouble();
+        double x2 = input.nextDouble();
+        double y2 = input.nextDouble();
+        double x3 = input.nextDouble();
+        double y3 = input.nextDouble();
+        double x4 = input.nextDouble();
+        double y4 = input.nextDouble();
+
+        double a = x1 - x2;
+        double b = y1 - y2;
+        double c = x3 - x4;
+        double d = y3 - y4;
+
+        double adbc = a * d - b * c;
+
+        double e = a * x1 - b * y1;
+        double f = c * x3 - d * y3;
+
+        if (Math.abs(adbc) < 1e-10) {
+            System.out.println("The two lines are parallel");
+        } else {
+            double x = (e * d - b * f) / adbc;
+            double y = (a * f - e * c) / adbc;
+
+            System.out.println("The intersecting point is at (" + x + ", " + y + ")");
+        }
+    }
+
+    //3.26
+    private static void isDivisible() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter an integer:");
+        int digit = input.nextInt();
+
+        System.out.println("Is " + digit + " divisible by 5 and 6? " + (digit % 5 == 0 && digit % 6 == 0));
+        System.out.println("Is " + digit + " divisible by 5 or 6? " + (digit % 5 == 0 || digit % 6 == 0));
+        System.out.println("Is " + digit + " divisible by 5 or 6, but not both? " + (digit % 5 == 0 ^ digit % 6 == 0));
+    }
+
+    //3.27
+    private static void pointInATriangle() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter a point’s x- and y-coordinates: ");
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+
+        boolean isWithinXAxis = x < 200.00;
+        boolean isWithinYAxis = y < 100;
+
+        if ((x == 200 && y != 0) || (y == 100 && x != 0) || !isWithinXAxis || !isWithinYAxis) {
+            System.out.println("The point is not in the triangle");
+        } else {
+            System.out.println("The point is in the triangle");
+        }
+    }
+
+    //3.28
+    private static void twoRectangles() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter r1’s center x-, y-coordinates, width, and height: ");
+        double r1X = input.nextDouble();
+        double r1Y = input.nextDouble();
+        double r1Width = input.nextDouble();
+        double r1Height = input.nextDouble();
+
+        System.out.println("Enter r2’s center x-, y-coordinates, width, and height: ");
+        double r2X = input.nextDouble();
+        double r2Y = input.nextDouble();
+        double r2Width = input.nextDouble();
+        double r2Height = input.nextDouble();
+
+        double xDistance = r1X >= r2X ? r1X - r2X : r2X - r1X;
+        double yDistance = r1Y >= r2Y ? r1Y - r2Y : r2Y - r1Y;
+
+        if (xDistance <= (r1Width - r2Width) / 2 && yDistance <= (r1Height - r2Height) / 2) {
+            System.out.println("r2 is inside r1");
+        } else if (xDistance <= (r1Width + r2Width) / 2 && yDistance <= (r1Height + r2Height) / 2) {
+            System.out.println("r2 overlaps r1");
+        } else {
+            System.out.println("r2 does not overlap r1");
+        }
+    }
+
+    //3.29
+    private static void twoCircles() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter circle1’s center x-, y-coordinates, and radius: ");
+        double x1 = input.nextDouble();
+        double y1 = input.nextDouble();
+        double r1 = input.nextDouble();
+
+        System.out.println("Enter circle2’s center x-, y-coordinates, and radius: ");
+        double x2 = input.nextDouble();
+        double y2 = input.nextDouble();
+        double r2 = input.nextDouble();
+
+        double distance = Math.sqrt((Math.pow((x2 - x1), 2)) + (Math.pow((y2 - y1), 2)));
+
+        if (distance <= r1 - r2) {
+            System.out.println("circle2 is inside circle1");
+        } else if (distance <= r1 + r2) {
+            System.out.println("circle2 overlaps circle1");
+        } else {
+            System.out.println("circle2 does not overlap circle1");
+        }
+    }
+
+    //3.30
+    private static void currentTime() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the time zone offset to GMT: ");
+
+        int timeZoneOffset = input.nextInt();
+
+        long totalMilliseconds = System.currentTimeMillis();
+        long totalSeconds = totalMilliseconds / 1000;
+        long currentSecond = totalSeconds % 60;
+
+        long totalMinutes = totalSeconds / 60;
+        long currentMinute = totalMinutes % 60;
+
+        long totalHours = totalSeconds / 60;
+        long currentHour = (totalHours + timeZoneOffset) % 24;
+
+        String ampPm = currentHour > 12 ? "PM" : "AM";
+
+        if (currentHour > 12) {
+            currentHour -= 12;
+        }
+
+        System.out.println("Current time is " + currentHour + ":" + currentMinute + ":" + currentSecond + " " + ampPm);
+    }
+
+    //3.31
+    private static void currencyExchange() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the exchange rate from dollars to RMB: ");
+        double exchangeRate = input.nextDouble();
+
+        System.out.print("Enter 0 to convert dollars to RMB and 1 vice versa: ");
+        int convert = input.nextInt();
+
+        if (convert > 1) {
+            System.out.println("incorrect input");
+            input.close();
+        }
+
+        System.out.print("Enter the " + (convert == 0 ? "dollar" : "RMB") + " amount: ");
+        double amount = input.nextDouble();
+
+        System.out.println((convert == 0 ? "$" : "") + amount + " is " + (convert == 0 ? amount * exchangeRate : amount / exchangeRate) + (convert == 0 ? "yuan" : "$"));
+    }
+
+    //3.32
+    private static void pointPosition() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter three points for p0, p1, and p2: ");
+        double x0 = input.nextDouble();
+        double y0 = input.nextDouble();
+        double x1 = input.nextDouble();
+        double y1 = input.nextDouble();
+        double x2 = input.nextDouble();
+        double y2 = input.nextDouble();
+
+        double position = (x1 - x0) * (y2 - y0) - (x2 - x0) * (y1 - y0);
+
+        System.out.println(position > 0.0 ? "p2 is on the left side of the line" :
+                position == 0.0 ? "p2 is on the same line" :
+                        "p2 is on the right side of the line");
+    }
+
+    //3.33
+    private static void compareCosts() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter weight and price for package 1: ");
+        double weight1 = input.nextDouble();
+        double package1 = input.nextDouble();
+
+        System.out.print("Enter weight and price for package 2: ");
+        double weight2 = input.nextDouble();
+        double package2 = input.nextDouble();
+
+        double total1 = weight1 * package1;
+        double total2 = weight2 * package2;
+
+        System.out.println((total1 < total2) ? "Package 1 has a better price" : (total1 > total2) ? "Package 2 has a better price" : "Two packages have the same price");
+    }
+
+    //3.34
+    private static void pointOnLineSegment() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter three points for p0, p1, and p2: ");
+        double x0 = input.nextDouble();
+        double y0 = input.nextDouble();
+        double x1 = input.nextDouble();
+        double y1 = input.nextDouble();
+        double x2 = input.nextDouble();
+        double y2 = input.nextDouble();
+
+        double position = (x1 - x0) * (y2 - y0) - (x2 - x0) * (y1 - y0);
+
+        if (position > 0.0 || position < 0.0) {
+            System.out.println("(" + x2 + ", " + y1 + ") is not on the line segment from " + "(" + x0 + ", " + y0 + ") to (" + x1 + ", " + y1 + ")");
+        } else {
+            if (x2 <= x1 && x2 >= x0) {
+                System.out.println("(" + x2 + ", " + y1 + ") is on the line segment from " + "(" + x0 + ", " + y0 + ") to (" + x1 + ", " + y1 + ")");
+            } else {
+                System.out.println("(" + x2 + ", " + y1 + ") is not on the line segment from " + "(" + x0 + ", " + y0 + ") to (" + x1 + ", " + y1 + ")");
+            }
         }
     }
 }

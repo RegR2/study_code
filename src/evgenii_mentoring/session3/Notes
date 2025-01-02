@@ -1,0 +1,16 @@
+Session 3 - Streams
+
+Stream pattern --> chain of responsibility
+
+Streams ends in some sort of operation
+peek --> allows you to see what happens after the present conveyor - better not to use in production
+
+Stream --> not end product - can do two things with it - act on it or return something else from it
+
+functions that work on the stream that don't change the stream from a stream = intermediate operation (e.g. flatmap)
+if you do an operation which changes a stream from a strea = terminal operation
+
+once you do a terminal operation on a stream - you close the stream, so can no longer access it
+
+objects or variables passed into a stream have to be immutable/ final
+
