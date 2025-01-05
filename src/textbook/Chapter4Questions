@@ -1,0 +1,291 @@
+Mathematical Functions, CHaracters and Strings
+
+4.2.1 Evaluate the following method calls:
+(a) Math.sqrt(4) = 2.0
+(b) Math.sin(2 * Math.PI) = 0
+(c) Math.cos(2 * Math.PI) = 1
+(d) Math.pow(2, 2) = 4.0
+(e) Math.log(Math.E) = 1.0
+(f) Math.exp(1) = 2.718
+(g) Math.max(2, Math.min(3, 4)) = 3
+(h) Math.rint(−2.5) = -2.0
+(i) Math.ceil(−2.5) = -2.0
+(j) Math.floor(−2.5) = -3.0
+(k) Math.round(−2.5f) = -2
+(l) Math.round(−2.5) = -2
+(m) Math.rint(2.5) = 2.0
+(n) Math.ceil(2.5) = 3.0
+(o) Math.floor(2.5) = 2.0
+(p) Math.round(2.5f) = 3
+(q) Math.round(2.5) = 3
+(r) Math.round(Math.abs(−2.5)) = 3
+
+4.2.2 True or false? The argument for trigonometric methods is an angle in radians = true
+
+4.2.3 Write a statement that converts 47 degrees to radians and assigns the result to a variable
+double radians = Math.toRadians(47);
+
+4.2.4 Write a statement that converts PI / 7 to an angle in degrees and assigns the result
+to a variable.
+double degrees = Math.toDegrees(Math.PI / 7);
+
+4.2.5 Write an expression that obtains a random integer between 34 and 55. --> (34 + int) (Math.random() * 22)
+Write an expression that obtains a random integer between 0 and 999. -->  (int)(Math.random() * 1000)
+Write an expression that obtains a random number between 5.5 and 55.5.  -->  (5.5 + int)(Math.random() * 50)
+
+
+4.2.6 Why does the Math class not need to be imported?
+because it is automatically important
+
+4.2.7 What is Math.log(Math.exp(5.5))? --> 5.5
+What is Math.exp(Math.log(5.5))? --> 5.5
+What is Math.asin(Math.sin(Math.PI / 6))? --> 0.5235987755982988
+What is Math.sin(Math.asin(Math.PI / 6))? --> 0.5235987755982988
+
+4.3.1 Which of the following are correct literals for characters?
+'\u345dE' is wrong. It must have exactly four hex numbers in the Unicode.
+
+4.3.2 How do you display the characters \ and "?
+'\\', '\"'
+
+4.3.3 Use print statements to find out the ASCII code for ‘1’, ‘A’, ‘B’, ‘a’, and ‘b’.
+Use print statements to find out the character for the decimal codes 40, 59, 79, 85,
+and 90. Use print statements to find out the character for the hexadecimal code 40,
+5A, 71, 72, and 7A.
+
+System.out.println((int) '1');
+System.out.println((int) 'A');
+System.out.println((int) 'B');
+System.out.println((int) 'a');
+System.out.println((int) 'b');
+
+System.out.println((char) 40);
+System.out.println((char) 59);
+System.out.println((char) 79);
+System.out.println((char) 85);
+System.out.println((char) 90);
+
+System.out.println((char) 0X40);
+System.out.println((char) 0X5A);
+System.out.println((char) 0X71);
+System.out.println((char) 0X72);
+System.out.println((char) 0X7A);
+
+
+
+4.3.4 Evaluate the following:
+int i = '1'; --> 49
+int j = '1' + '2' * ('4' − '3') + 'b' / 'a'; --> 100
+int k = 'a' --> 97;
+char c = 90 --> Z;
+
+4.3.5 Can the following conversions involving casting be allowed? If so, find the
+converted result.
+char c = 'A';
+int i = (int)c;
+yes --> 65
+
+float f = 1000.34f;
+int i = (int)f;
+yes --> 1000
+
+double d = 1000.34;
+int i = (int)d;
+yes --> 1000
+
+int i = 97;
+char c = (char)i;
+ye s--> a
+
+4.3.6 Show the output of the following program:
+public class Test {
+ public static void main(String[] args) {
+ char x = 'a';
+ char y = 'c';
+ System.out.println(++x);
+ System.out.println(y++);
+ System.out.println(x − y);
+ }
+}
+
+b
+c
+-2
+
+4.3.7 Write the code that generates a random lowercase letter.
+char randomLowercase = (char) (Math.random() * 26 + 'a';
+
+4.3.8 Show the output of the following statements:
+System.out.println('a' < 'b'); -> true
+System.out.println('a' <= 'A'); --> false
+System.out.println('a' > 'b'); --> false
+System.out.println('a' >= 'A'); --> true
+System.out.println('a' == 'a'); --> true
+System.out.println('a' != 'b'); --> true
+
+4.4.1 Suppose s1, s2, and s3 are three strings, given as follows:
+String s1 = "Welcome to Java";
+String s2 = "Programming is fun";
+String s3 = "Welcome to Java";
+
+What are the results of the following expressions?
+(a) s1 == s2 --> false
+(b) s2 == s3 --> false
+(c) s1.equals(s2) --> false
+(d) s1.equals(s3) --> true
+(e) s1.compareTo(s2) --> +ve int
+(f) s2.compareTo(s3) --> -ve int
+(g) s2.compareTo(s2) --> 0
+(h) s1.charAt(0) --> W
+(i) s1.indexOf('j') --> -1
+(j) s1.indexOf("to") --> 8
+(k) s1.lastIndexOf('a') --> 14
+(l) s1.lastIndexOf("o", 15) --> 9
+(m) s1.length() --> 15
+(n) s1.substring(5) --> "me to Java"
+(o) s1.substring(5, 11) --> "me to "
+(p) s1.startsWith("Wel") --> true
+(q) s1.endsWith("Java") --> true
+(r) s1.toLowerCase() --> welcome to java
+(s) s1.toUpperCase() --> WELCOME TO JAVA
+(t) s1.concat(s2) --> Welcome to JavaProgramming is fun
+(u) s1.contain(s2) --> false
+(v) "\t Wel \t".trim() 00> Wel
+
+4.4.2 Suppose s1 and s2 are two strings. Which of the following statements or expressions are incorrect?
+String s = "Welcome to Java";
+String s3 = s1 + s2;
+s3 = s1 − s2;
+s1 == s2;
+s1 >= s2;
+s1.compareTo(s2);
+int i = s1.length();
+char c = s1(0);
+char c = s1.charAt(s1.length());
+
+s3 = s1 − s2;
+s1 >= s2
+char c = s1(0)
+
+
+4.4.3 Show the output of the following statements (write a program to verify your
+results):
+System.out.println("1" + 1); --> 11
+System.out.println('1' + 1); --> 50
+System.out.println("1" + 1 + 1);  --> 111
+System.out.println("1" + (1 + 1)); --> 12
+System.out.println('1' + 1 + 1); --> 51
+
+
+4.4.4 Evaluate the following expressions (write a program to verify your results):
+1 + "Welcome " + 1 + 1 --> 1Welcome 11
+1 + "Welcome " + (1 + 1) --> 1Welcome 2
+1 + "Welcome " + ('\u0001' + 1) --> 1Welcome 2
+1 + "Welcome " + 'a' + 1 --> 1Welcome a1
+
+
+4.4.5 Let s1 be " Welcome " and s2 be " welcome ". Write the code for the
+following statements:
+(a) Check whether s1 is equal to s2 and assign the result to a Boolean variable
+isEqual.
+boolean equals = s1.equals(s2);
+
+(b) Check whether s1 is equal to s2, ignoring case, and assign the result to a Boolean variable isEqual.
+boolean equals = s1.equalsIgnoreCase(s2);
+
+(c) Compare s1 with s2 and assign the result to an int variable x.
+int comparison = s1.compareTo(s2).
+
+(d) Compare s1 with s2, ignoring case, and assign the result to an int variable x.
+int compariosn = s1.compareToIgnoreCase(s2);
+
+(e) Check whether s1 has the prefix AAA and assign the result to a Boolean
+variable b.
+boolean startsWith = s1.startsWith("AAA");
+
+(f) Check whether s1 has the suffix AAA and assign the result to a Boolean
+variable b.
+boolean endsWith = s1.endsWith("AAA");
+
+(g) Assign the length of s1 to an int variable x.
+int length = s1.length();
+
+(h) Assign the first character of s1 to a char variable x.
+int x = s1.charAt(0);
+
+(i) Create a new string s3 that combines s1 with s2.
+String s3 = s1 + s2;
+
+(j) Create a substring of s1 starting from index 1.
+String substring = s1.substring(1);
+
+(k) Create a substring of s1 from index 1 to index 4.
+String substring = s1.substring(1, 5);
+
+(l) Create a new string s3 that converts s1 to lowercase.
+String s3 = s1.toLowerCase();
+
+(m) Create a new string s3 that converts s1 to uppercase.
+String s3 = s1.toUpperCase();
+
+(n) Create a new string s3 that trims whitespaces on both ends of s1.
+String s3 = s1.trim();
+
+(o) Assign the index of the first occurrence of the character e in s1 to an int variable x.
+int x = s1.indexOf('e');
+
+(p) Assign the index of the last occurrence of the string abc in s1 to an int variable x.
+int x = s1.lastIndexOf('abc');
+
+4.4.6 Write one statement to return the number of digits in an integer i.
+int numberOfDigits = (i + "").length();
+
+4.4.7 Write one statement to return the number of digits in a double value d.
+int numberOfDigits = (d + "").length();
+
+4.5.1 If you run Listing 4.3 GuessBirthday.java with input 1 for Set1, Set3, and Set4 and
+0 for Set2 and Set5, what will be the birthday?
+13
+
+4.5.2 If you enter a lowercase letter such as b, the program in Listing 4.4 displays B is 11.
+Revise the code as to display b is 11.
+System.out.println("The decimal value for hex digit " + (hexString.charAt(0) + " is " + value);
+
+4.5.3 What would be wrong if lines 6 and 7 are in Listing 4.5 replaced by the following
+code?
+String lottery = "" + (int)(Math.random() * 100);
+potentially still only get a 1 digit number
+
+4.6.1 What are the format specifiers for outputting a Boolean value, a character, a decimal
+integer, a floating-point number, and a string?
+boolean = %b
+character = %c
+decimal = %d
+floating point number = %f
+string = %s
+
+4.6.2 What is wrong in the following statements?
+(a) System.out.printf("%5d %d", 1, 2, 3); --> three digits here and the last one doesn't have a specifier
+(b) System.out.printf("%5d %f", 1); --> extra specifier
+(c) System.out.printf("%5d %f", 1, 2); --> 2 isn't a floating number
+(d) System.out.printf("%.2f\n%0.3f\n", 1.23456, 2.34); --> 0.3 --> width cannot be 0
+(e) System.out.printf("%08s\n", "Java"); --> 08 - should not start with the 0
+
+4.6.3 Show the output of the following statements:
+(a) System.out.printf("amount is %f %e\n", 32.32, 32.32);
+amount is 32.320000 3.233000e+01
+(b) System.out.printf("amount is %5.2f%% %5.4e\n", 32.327,
+32.32);
+amount is 32.33% 3.2330e+01
+(c) System.out.printf("%6b\n", (1 > 2));
+*false // * denote a space
+(d) System.out.printf("%6s\n", "Java");
+**Java // * denote a space
+(e) System.out.printf("%−6b%s\n", (1 > 2), "Java");
+false*Java
+(f) System.out.printf("%6b%−8s\n", (1 > 2), "Java");
+*falseJava****
+(g) System.out.printf("%,5d %,6.1f\n", 312342, 315562.932);
+312,342 315,562.9
+(h) System.out.printf("%05d %06.1f\n", 32, 32.32);
+00032 0032.3

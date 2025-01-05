@@ -1,0 +1,15 @@
+reduce has 3 signatures:
+- binary operator (BinaryOperator<T>) --> is a bifunction --> all operators are of the same time
+    - pass through the reduce functionality such as Integer::sum --> the same as (a, b) -> a operation b;
+    - they all must be the same type
+    - the operation must be associative (? check this with Dasha) --> doens't matter the order of the operations
+    - this type of operation returns an optional because the initial accumulator is an unknown value
+
+- T (identity, BinaryOperator<T>) --> where you pass through the accumulator value
+    - e.g. .reduce(0, Integer::sum)
+
+- U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner
+    - .reduce(0, Integer::sum, (a, b) -> a+ b));
+    - the types in the bifunction can be different
+    - use specifically with parallel streams
+    - When there are a lot of elements in the collection --> multiple streams will be used to make things quicker
