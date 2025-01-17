@@ -1,0 +1,3 @@
+STR. --> string template
+- has a default value - so avoids NPEs
+

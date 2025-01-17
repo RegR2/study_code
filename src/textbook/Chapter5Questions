@@ -1,0 +1,445 @@
+5.2.1 Analyze the following code. Is count < 100 always true, always false, or
+sometimes true or sometimes false at Point A, Point B, and Point C?
+int count = 0;
+while (count < 100) {
+ // Point A
+ System.out.println("Welcome to Java!");
+ count++;
+ // Point B
+}
+// Point C
+
+point a - always true
+point b - sometimes true
+point c = always false
+
+5.2.2 How many times are the following loop bodies repeated? What is the output of each
+loop?
+
+a) infinite number of times --> because i is never increased
+b) infinite number of times --> because i is never increased
+c) 9 --> if i +1 is event, then i is printed
+
+5.2.3 What is the output of the following code? Explain the reason.
+int x = 80000000;
+while (x > 0)
+ x++;
+System.out.println("x is " + x);
+
+x is -2147483648
+The reason: When a variable is assigned a value that is too large (in size) to be stored, it causes overflow.
+2147483647 + 1 is actually -2147483648
+
+5.5.1 Suppose the input is 2 3 4 5 0. What is the output of the following code?
+import java.util.Scanner;
+public class Test {
+ public static void main(String[] args) {
+ Scanner input = new Scanner(System.in);
+ int number, max;
+ number = input.nextInt(); max = number;
+ while (number != 0) {
+ number = input.nextInt();
+ if (number > max)
+ max = number;
+ }
+ System.out.println("max is " + max);
+ System.out.println("number " + number);
+ }
+}
+
+max is 5
+number is 0
+
+
+5.6.1 Suppose the input is 2 3 4 5 0. What is the output of the following code?
+import java.util.Scanner;
+public class Test {
+ public static void main(String[] args) {
+ Scanner input = new Scanner(System.in);
+ int number, max;
+ number = input.nextInt();
+ max = number;
+ do {
+ number = input.nextInt();
+ if (number > max)
+ max = number;
+ } while (number != 0)
+  System.out.println("max is " + max);
+  System.out.println("number " + number);
+  }
+ }
+
+ max is 5
+ number = 0
+
+
+5.6.2 What are the differences between a while loop and a do-while loop? Convert the
+following while loop into a do-while loop:
+Scanner input = new Scanner(System.in);
+int sum = 0;
+System.out.println("Enter an integer " +
+ "(the input ends if it is 0)");
+int number = input.nextInt();
+while (number != 0) {
+ sum += number;
+ System.out.println("Enter an integer " +
+ "(the input ends if it is 0)");
+ number = input.nextInt();
+}
+
+while loop will run the code through at least once before the conditional condition is checked. while checks first and only then runs the code
+
+Scanner input = new Scanner(System.in);
+int sum = 0;
+int number;
+
+ do {
+sum += number;
+ System.out.println("Enter an integer " +
+ "(the input ends if it is 0)");
+ number = input.nextInt();
+ } while (number != 0)
+
+ 5.7.1 Do the following two loops result in the same value in sum?
+ for (int i = 0; i < 10; ++i) {
+  sum += i;
+ }
+
+ for (int i = 0; i < 10; i++) {
+  sum += i;
+ }
+
+ yes
+
+5.7.2 What are the three parts of a for loop control? Write a for loop that prints the
+numbers from 1 to 100.
+
+control variable, loop continuation condition, action after each iteration
+
+ for (int i = 0; i <= 100; i++) {
+ System.out.println(i);
+ }
+
+
+5.7.3 Suppose the input is 2 3 4 5 0. What is the output of the following code?
+import java.util.Scanner;
+public class Test {
+ public static void main(String[] args) {
+ Scanner input = new Scanner(System.in);
+ int number, sum = 0, count;
+ for (count = 0; count < 5; count++) {
+ number = input.nextInt();
+ sum += number;
+ }
+ System.out.println("sum is " + sum);
+  System.out.println("count is " + count);
+  }
+ }
+
+sum is 14
+count 5
+
+
+5.7.4 What does the following statement do?
+for ( ; ; ) {
+ // Do something
+}
+
+infinite loop
+
+
+5.7.5 If a variable is declared in a for loop control, can it be used after the loop exits?
+no - its scope is just in the loop
+
+
+5.7.6 Convert the following for loop statement to a while loop and to a do-while loop:
+long sum = 0;
+for (int i = 0; i <= 1000; i++)
+ sum = sum + i;
+
+ long sum = 0;
+ int i=0
+ while (i <= 100) {
+ i++
+ sum += i;
+ }
+
+
+ long sum=0;
+ int i=0
+
+ do {
+ i++;
+ sum += i;
+ } while (i<=100);
+
+
+ 5.7.7 Count the number of iterations in the following loops.
+ int count = 0;
+ while (count < n) {
+  count++;
+ }
+
+n times
+
+ for (int count = 0;
+  count <= n; count++) {
+ }
+
+n+1 times
+
+ int count = 5;
+ while (count < n) {
+  count++;
+ }
+
+ n-5 times
+
+ int count = 5;
+ while (count < n) {
+  count = count + 3;
+ }
+
+ The ceiling of (n-5)/3 times
+
+
+ 5.8.1 Can you convert a for loop to a while loop? List the advantages of using for
+ loops.
+ yes
+it initialiases the condition in the loop itself and good if you know the number of iterations aheads of time. and the after loop condition is built into the loop structure
+
+ 5.8.2 Can you always convert a while loop into a for loop? Convert the following
+ while loop into a for loop:
+ int i = 1;
+ int sum = 0;
+ while (sum < 10000) {
+  sum = sum + i;
+  i++;
+ }
+
+yes
+for (int i=1; sum < 10000; i++) {
+sum = sum + 1;
+}
+
+
+5.8.3 Identify and fix the errors in the following code:
+public class Test {
+public void main(String[] args) {
+int j;
+
+for (int i = 0; i < 10; i++) {
+sum += i;
+
+if (i < j){
+System.out.println(i)
+} else {
+System.out.println(j);
+}
+
+};
+
+while (j < 10) {
+j++;
+};
+
+do {
+ j++;
+ } while (j < 10);
+
+}
+}
+
+
+5.8.4 What is wrong with the following programs?
+a) no semi colon after the while
+b) closing off the loop in the wrong place
+
+
+5.9.1 How many times is the println statement executed?
+for (int i = 0; i < 10; i++)
+ for (int j = 0; j < i; j++)
+ System.out.println(i * j)
+
+When i is 0, the println statement is not executed.
+When i is 1, the println statement is executed once.
+When i is 2, the println statement is executed two times.
+When i is 3, the println statement is executed three times.
+When i is 9, the println statement is executed nine times.
+So, the total is 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+
+
+5.9.2 Show the output of the following programs. (Hint: Draw a table and list the variables in the columns to trace these programs.)
+public class Test {
+public static void main(String[] args) {
+for (int i = 1; i < 5; i++) {
+int j = 0;
+while (j < i) {
+ System.out.print(j + " ");
+ j++;
+ }
+ }
+ }
+}
+
+0 0 1 0 1 2 0 1 2 3
+
+int i = 0;
+while (i < 5) {
+for (int j = i; j > 1; j––)
+ System.out.print(j + " ");
+ System.out.println("****");
+ i++;
+ }
+
+****
+****
+2 ****
+3 2 ****
+4 3 2 ****
+
+int i = 5;
+while (i >= 1) {
+int num = 1;
+for (int j = 1; j <= i; j++) {
+ System.out.print(num + "xxx");
+ num *= 2;
+ }
+ System.out.println();
+ i--;
+ }
+
+ 1xxx2xxx4xxx8xxx16xxx
+ 1xxx2xxx4xxx8xxx
+ 1xxx2xxx4xxx
+ 1xxx2xxx
+ 1xxx
+
+
+int i = 1;
+do {
+int num = 1;
+for (int j = 1; j <= i; j++) {
+ System.out.print(num + "G");
+ num += 2;
+ }
+ System.out.println();
+ i++;
+ } while (i <= 5);
+
+1G
+1G3G
+1G3G5G
+1G3G5G7G
+1G3G5G7G9G
+
+
+5.11.1 Will the program work if n1 and n2 are replaced by n1 / 2 and n2 / 2 in line 17
+in Listing 5.9?
+no, because what if n1 and n2 are not divisible by 2 (as whole numbers).
+
+5.11.2 In Listing 5.11, why is it wrong if you change the code (char)(hexValue +
+'0') to hexValue + '0' in line 21?
+Possible loss of precision for int to char.
+
+5.11.3 In Listing 5.11, how many times the loop body is executed for a decimal number
+245, and how many times the loop body is executed for a decimal number 3245?
+245 = 2
+3245 = 3
+
+5.11.4 What is the hex number after E? What is the hex number after F?
+F , 10
+
+5.11.5 Revise line 27 in Listing 5.11 so the program displays hex number 0 if the if the input decimal is 0.
+System.out.println(decimal == 0 ? "0" : "The hex number is " + hex);
+
+5.12.1 What is the keyword break for? What is the keyword continue for? Will the following programs terminate? If so, give the output.
+break is to break out of the loop
+continue is to break out of the iteration
+
+a) int balance = 10;
+   while (true) {
+   if (balance < 9)
+   break;
+    balance = balance – 9;
+   }
+   System.out.println("Balance is "
+   + balance);
+
+yes - will break out once balance is less than 9 --> output = Balance is 1
+
+b) int balance = 10;
+   while (true) {
+   if (balance < 9)
+   continue;
+    balance = balance – 9;
+   }
+   System.out.println("Balance is "
+    + balance);
+
+will not terminate because condition is always true
+
+
+5.12.2 The for loop on the left is converted into the while loop on the right. What is
+wrong? Correct it.
+
+no i++ in the continue condition
+
+int i = 0, sum = 0;
+while (i < 4) {
+  if (i % 3 == 0) {
+    i++;
+    continue;
+  }
+  sum += i;
+  i++;
+}
+
+
+5.12.3 Rewrite the programs TestBreak and TestContinue in Listings 5.12 and 5.13
+without using break and continue.
+
+        int sum = 0;
+        int number = 0;
+
+        while (number < 20 && sum < 100) {
+            number++;
+            sum += number;
+        }
+
+        System.out.println("The number is " + number);
+        System.out.println("The sum is " + sum);
+
+
+        int sum = 0;
+        int number = 0;
+
+        while (number < 20) {
+            number++;
+            if (number != 10 && number != 11) {
+                sum += number;
+            }
+        }
+
+        System.out.println("The sum is " + sum);
+
+
+5.12.4 After the break statement in (a) is executed in the following loop, which statement
+is executed? Show the output.
+System.out.println(i);
+
+After the continue statement in (b) is executed in
+the following loop, which statement is executed? Show the output.
+j++
+
+5.13.1 What happens to the program if (low < high) in line 20 is changed to (low <= high)?
+it will evaluate the same character and iwll subsequently return true
+
+
+
+5.14.1 Simplify the code in lines 27–32 using a conditional operator.
+if (isPrime) {
+count++;
+
+System.out.println(count % NUMBER_OF_PRIMES_PER_LINE == 0 ? number : number + " ")
+}
