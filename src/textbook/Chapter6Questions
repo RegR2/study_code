@@ -1,0 +1,171 @@
+Methods
+
+6.1.1 What are the benefits of using a method?
+- help wtih being able to write reusable code, easy to maintain, reduce complexity
+
+6.2.1 How do you simplify the max method in Listing 6.1 using the conditional operator?
+return num1 > num2 ? num1 : num2;
+
+6.2.2 Define the terms parameter, argument, and method signature.
+- parameter - placeholder for the true value being passed through to the method
+- argument - the true value being passed to the parameter
+- method signature - method name + parameter list
+
+6.3.1 How do you define a method? How do you invoke a method?
+Define a method by by defining the values, parameter and return type of the method.
+You invoke a method by calling it.
+
+6.4.1 True or false? A call to a method with a void return type is always a statement itself, but a call to a value-returning method cannot be a statement by itself.
+true
+false - a call to a value retruning method is a component of an expression
+
+6.4.2 What is the return type of a main method?
+void
+
+6.4.3 What would be wrong with not writing a return statement in a value-returning
+method?
+you'll get a synatx error because something must be returned
+
+Can you have a return statement in a void method?
+yes - if you want to skip the rest of the code and return to the calling method
+
+Does the return statement in the following method cause syntax errors?
+public static void xMethod(double x, double y) {
+ System.out.println(x + y);
+ return x + y;
+}
+yes - its a void method so shouldn't be returning anything
+
+
+6.4.4 Write method headers (not the bodies) for the following methods:
+a. Return a sales commission, given the sales amount and the commission rate.
+private static double returnCommission(double salesAmount, double CommissionRate) {}
+
+b. Display the calendar for a month, given the month and year.
+private static void displayCalendar(int month, int year) {}
+
+c. Return a square root of a number.
+private static double getSqrt(int num) {}
+
+d. Test whether a number is even, and returning true if it is.
+private static boolean isEven(int num) {};
+
+e. Display a message a specified number of times.
+private static void displayMessage(String message, int numOfTimesToDisplayMessage) {}
+
+f. Return the monthly payment, given the loan amount, number of years, and
+annual interest rate.
+private static double getMonthlyPayment(double loanAmount, int year, double annualInterestRate) {}
+
+g. Return the corresponding uppercase letter, given a lowercase letter.
+private static Character getUpperCaseLetter(Character lowerCaseLetter){}
+
+
+6.4.5
+Identify and correct the errors in the following program:
+ 1  public class Test {
+ 2    public static method1(int n, m) {
+ 3      n += m;
+ 4      method2(3.4);
+ 5    }
+ 6
+ 7    public static int method2(int n) {
+ 8      if (n > 0) return 1;
+ 9      else if (n == 0) return 0;
+10      else if (n < 0) return -1;
+11    }
+12  }
+Line 2: method1 is not defined correctly. It does not have a return type or void.
+Line 2: type int should be declared for parameter m.
+Line 7: parameter type for n should be double to match method2(3.4).
+Line 11: if (n < 0) should be removed in method, otherwise a compile error is reported.
+
+6.5.1 How is an argument passed to a method? Can the argument have the same name as
+its parameter?
+pass the right type of value in the right order. The actual parameter can have the same name as its formal parameter.
+
+6.5.2 Identify and correct the errors in the following program:
+ 1 public class Test {
+ 2 public static void main(String[] args) {
+ 3 nPrintln(5, "Welcome to Java!");
+ 4 }
+ 5
+ 6 public static void nPrintln(String message, int n) {
+ 7 int n = 1;
+ 8 for (int i = 0; i < n; i++)
+ 9 System.out.println(message);
+10 }
+11 }
+
+won't print the amount of times as expected because changed the value of n and then not increasing it, parameters aren't passed in the same order
+
+6.5.3 What is pass-by-value? Show the result of the following programs.
+the value of the argument that is passsed to the parameter
+a) 0
+b) 2
+   2 4
+   2 4 8
+   2 4 8 16
+   2 4 8 16 32
+   2 4 8 16 32 64
+c) Before the call, variable times is 3;
+n= 3
+Welcome To Java!
+n= 2
+Welcome To Java!
+n= 1
+Welcome To Java!
+After the call, variable times is 3;
+d) 1
+   2 1
+   2 1
+   4 2 1
+i is 5
+
+6.6.1 Trace the gcd method to find the return value for gcd(4, 6).
+2
+
+6.6.2 Trace the isPrime method to find the return value for isPrime(25).
+false
+
+6.7.1 What is hexCharToDecimal('B'))?
+11
+
+What is hexCharToDecimal('7'))?
+7
+
+What is hexToDecimal("A9"))?
+169?
+
+
+6.8.1 What is method overloading? --> Method overloading is when there is multiple methods with the same name in the same class, but different parameters being passed to the method.
+Is it permissible to define two methods that have the same name but different parameter types? --> yes
+Is it permissible to define two methods in a class that have identical method names and parameter lists, but different return
+value types or different modifiers? --> no
+
+6.8.2 What is wrong in the following program?
+public class Test {
+ public static void method(int x) {
+ }
+ public static int method(int y) {
+return y;
+ }
+}
+
+the two methods have the ame name and same parameters
+
+6.8.3 Given two method definitions,
+public static double m(double x, double y)
+public static double m(int x, double y)
+tell which of the two methods is invoked for:
+
+a. double z = m(4, 5); --> second method
+b. double z = m(4, 5.4); --> second method
+c. double z = m(4.5, 5.4); --> first method
+
+6.9.1 What is a local variable?
+A local variable is a variable declared inside a method.
+
+6.9.2 What is the scope of a local variable?
+the method it is used in
+The scope of a local variable starts from its declaration and continues to the end of the block that contains the variable.

@@ -997,9 +997,9 @@ public class Chapter5Exercises {
 
         while (true) {
             double comission = 0;
-            if (sales == 5000) {
+            if (sales < 5000) {
                 comission += sales * 0.08;
-            } else if (sales == 1000) {
+            } else if (sales < 10000) {
                 comission += sales * 0.10;
             } else if (sales > 15000) {
                 comission += sales * 0.12;
@@ -1067,9 +1067,9 @@ public class Chapter5Exercises {
 
         for (double i = sales; total < commissionSought; sales++) {
             double comission = 0;
-            if (sales == 5000) {
+            if (sales < 5000) {
                 comission += sales * 0.08;
-            } else if (sales == 1000) {
+            } else if (sales < 10000) {
                 comission += sales * 0.10;
             } else if (sales > 15000) {
                 comission += sales * 0.12;

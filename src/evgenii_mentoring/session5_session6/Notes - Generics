@@ -1,0 +1,54 @@
+Used in classes, interfaces and methods
+Needed to obezopasit' tipi in Java --> e.g. array
+
+When stating a generic method, you have to first state that you are using generic types:
+- show this before the return type in diamonds, then state the return type and then the method types.
+e.g.
+private static <T, U, X, R> R (T a, U b, X c) {
+return R;
+}
+
+HOwever, it is better to have your return type be one of the parameter types - that way you don't have to do any casting
+- if you keep it as R, the method will return an object and you wikll need to cast the object to know
+what type you are getting back.
+
+Generics can only be objects --> so cannot be in primitive types
+
+Java will compile the code and will know what the generic type will be during compilation
+
+If you're passing through a list of generic types - it is the responsibility of the list to parameterise the type
+
+Wildcard is used at the time of usage - i.e. you can't use a wildcard in a class because a class is a definer
+whereas in a function it is immediatey used
+
+A wildcard can only be used by something that has arleady been parameterized
+wildcards are used when reading osmething, but parameters (like T) are used when writing
+- paramaterization is more often when changing an object.
+
+use T when returning an object of the same type as T, however if it can by any other type, then need to use a wildcard.
+eg. - the following has to be parameterized to T
+private static <T extends Number> T (List<T> list) {
+
+int sum = 0;
+for (T t : list) {
+sum+= t;
+}
+
+return (T) sum;
+}
+
+however the following can just return sum because used a wildcard which extends Number:
+private static int (List<? extends Number> list) {
+
+int sum = 0;
+for (Number t : list) {
+sum+= t;
+}
+
+return sum;
+}
+
+
+super vs extends
+- if you do ? super Number --> it will take on only the parents of number, and not number itself
+- if you do extends --> it will will allow you to use Number and any parents of Number (i.e. if Number extends something as well).
