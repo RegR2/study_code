@@ -1,0 +1,298 @@
+7.2.1 How do you declare an array reference variable and how do you create an array?
+array reference ---> Double[] myArray;
+creating array --> Double[] myArray = new double[10] or Double[] myArray = {1.0, 2.0, 3.0};
+
+7.2.2 When is the memory allocated for an array?
+when the array is created
+
+7.2.3 Indicate true or false for the following statements:
+a. Every element in an array has the same type. --> true
+b. The array size is fixed after an array reference variable is declared. --> false
+c. The array size is fixed after it is created. --> true
+d. The elements in an array must be of a primitive data type. --> false
+
+7.2.4 What is the output of the following code?
+int x = 30;
+int[] numbers = new int[x];
+x = 60;
+System.out.println("x is " + x); --> 60
+System.out.println("The size of numbers is " + numbers.length); --> 30
+
+7.2.5 How do you access elements in an array?
+through their index --> i.e. myElements[i]
+
+7.2.6 What is the array index type? What is the lowest index? What is the representation
+of the third element in an array named a?
+array index type = int, lowest index = 0, representation of third element = a[2];
+
+7.2.7 Which of the following statements are valid?
+a. int i = new int(30); --> false
+b. double d[] = new double[30]; --> true
+c. char[] r = new char(1..30); --> false
+d. int i[] = (3, 4, 3, 2); --> false
+e. float f[] = {2.3, 4.5, 6.6}; --> true
+f. char[] c = new char(); --> true
+
+7.2.8 Write statements to do the following:
+a. Create an array to hold 10 double values.
+double[] dArray = new double[10];
+
+b. Assign the value 5.5 to the last element in the array.
+dArray[dArray.length - 1] = 5.5;
+
+c. Display the sum of the first two elements.
+double sum = dArray[0] + dArray[1];
+
+d. Write a loop that computes the sum of all elements in the array.
+double sum = 0;
+for (Double el : dArray) {
+sum+=el;
+}
+
+e. Write a loop that finds the minimum element in the array.
+double min = dArray[0];
+for (Double el : dArray) {
+if (el < min) {
+min = el;
+}
+}
+
+f. Randomly generate an index and display the element of this index in the array.
+int index = (int) (Math.random() * dArray.length -1);
+System.out.println(dArray[index]);
+
+g. Use an array initializer to create another array with the initial values 3.5, 5.5,
+4.52, and 5.6.
+double[] newArray = {s 3.5, 5.5, 4.52, 5.6}
+
+7.2.9 What happens when your program attempts to access an array element with an
+invalid index?
+ArrayIndexOutOfBounds error
+
+7.2.10 Identify and fix the errors in the following code:
+1 public class Test {
+2 public static void main(String[] args) {
+3 double[100] r;
+4
+5 for (int i = 0; i < r.length(); i++);
+6 r(i) = Math.random * 100;
+7 }
+8 }
+
+line 3 --> array not initialised correctly
+Line 5 --> The semicolon (;) at the end of the for loop heading should be removed.
+line 5 --> to access the length, should be r.length -1 (otherwise will get index out of bounds error);
+line 6 --> random should be random()
+line 6--> to access the index of r, should be r[i]
+
+7.2.11 What is the output of the following code?
+ 1 public class Test {
+ 2 public static void main(String[] args) {
+ 3 int list[] = {1, 2, 3, 4, 5, 6};
+ 4 for (int i = 1; i < list.length; i++)
+ 5 list[i] = list[i − 1];
+ 6
+ 7 for (int i = 0; i < list.length; i++)
+ 8 System.out.print(list[i] + " ");
+ 9 }
+10 }
+
+1 1 1 1 1 1
+
+7.4.1 Will the program pick four random cards if you replace lines 22–27 in Listing 7.2,
+DeckOfCards.java, with the following code?
+for (int i = 0; i < 4; i++) {
+ int cardNumber = (int)(Math.random() * deck.length);
+ String suit = suits[cardNumber / 13];
+ String rank = ranks[cardNumber % 13];
+ System.out.println("Card number " + cardNumber + ": "
+ + rank + " of " + suit);
+ }
+
+ No, you may get the same card multiple times
+
+ 7.5.1 Use the arraycopy method to copy the following array to a target array t:
+ int[] source = {3, 4, 5};
+
+ int[] t = new int[3];
+ System.arraycopy(sourceArray, 0, t, 0, sourceArray.length)
+
+ 7.5.2 Once an array is created, its size cannot be changed. Does the following code resize
+ the array?
+ int[] myList;
+ myList = new int[10];
+ // Sometime later you want to assign a new array to myList
+ myList = new int[20];
+
+  creates a new array
+
+  7.6.1 True or false? When an array is passed to a method, a new array is created and
+  passed to the method.
+  false
+
+  7.7.1 Suppose the following code is written to reverse the contents in an array, explain
+  why it is wrong. How do you fix it?
+  int[] list = {1, 2, 3, 5, 4};
+  for (int i = 0, j = list.length − 1; i < list.length; i++, j−−) {
+   // Swap list[i] with list[j]
+   int temp = list[i];
+   list[i] = list[j];
+   list[j] = temp;
+  }
+
+It swaps the elements twice. For example, the first element is swapped with the last element once and then the last element
+is swapped with the first element another time. In effect, the elements are not swapped. Here is the fix:
+int[] list = {1, 2, 3, 5, 4};
+
+for (int i = 0, j = list.length - 1; i < list.length / 2; i++, j--) {
+  // Swap list[i] with list[j]
+  int temp = list[i];
+  list[i] = list[j];
+  list[j] = temp;
+}
+
+
+7.8.1 Show the output of the following two programs:
+public class Test {
+public static void main(String[] args) {
+int number = 0;
+int[] numbers = new int[1];
+ m(number, numbers);
+ System.out.println("number is " + number
+ + " and numbers[0] is " + numbers[0]);
+ }
+public static void m(int x, int[] y) {
+ x = 3;
+ y[0] = 3;
+ }
+}
+
+number is 0 and numbers[0] is 3
+
+
+public class Test {
+public static void main(String[] args) {
+int[] list = {1, 2, 3, 4, 5};
+ reverse(list);
+for (int i = 0; i < list.length; i++)
+ System.out.print(list[i] + " ");
+ }
+
+public static void reverse(int[] list) {
+int[] newList = new int[list.length];
+for (int i = 0; i < list.length; i++)
+ newList[i] = list[list.length − 1 − i];
+ list = newList;
+ }
+}
+
+1 2 3 4 5 --> because the reference was changed to the list, but not the list itself
+
+7.8.2 Where are the arrays stored during execution? Show the contents of the stack and
+heap during and after executing displayArray, countLetters, and displayCounts in Listing 7.4.
+
+arrays are stored in memory
+
+7.9.1 What is wrong with each of the following method headers?
+a. public static void print(String... strings, double... numbers) --> can only have one variable length params in a method
+b. public static void print(double... numbers, String name) --> variabble length param must be last
+c. public static double... print(double d1, double d2) --> variable length must be the param and not the return type
+
+7.9.2 Can you invoke the printMax method in Listing 7.5 using the following statements?
+a. printMax(1, 2, 2, 1, 4); --> yes
+b. printMax(new double[]{1, 2, 3}); --> yes
+c. printMax(new int[]{1, 2, 3}); --> no (print max accepts double only)
+
+7.10.1 If high is a very large integer such as the maximum int value 2147483647,
+(low + high) / 2 may cause overflow. How do you fix it to avoid overflow?
+
+int mid = low + (high - low) / 2;
+
+7.10.2 Use Figure 7.9 as an example to show how to apply the binary search approach to a
+search for key 10 and key 12 in list {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79}.
+
+
+
+7.10.3 If the binary search method returns −4, is the key in the list? Where should the key
+be inserted if you wish to insert the key into the list?
+
+The key is not in the list. The key should be inserted at -(-4 + 1) = 3.
+
+7.11.2 How do you modify the selectionSort method in Listing 7.8 to sort numbers in
+decreasing order?
+-- essentially change the check to be if it is smaller than list[j] instead of bigger than list j
+    public static void selectionSort(double[] list) {
+        for (int i = 0; i < list.length - 1; i++) {
+            // Find the minimum in the list[i..list.length-1]
+            double currentMax = list[i];
+            int currentMaxIndex = i;
+
+            for (int j = i + 1; j < list.length; j++) {
+                if (currentMax < list[j]) {
+                    currentMax = list[j];
+                    currentMaxIndex = j;
+                }
+            }
+
+            // Swap list[i] with list[currentMinIndex] if necessary;
+            if (currentMax != i) {
+                list[currentMaxIndex] = list[i];
+                list[i] = currentMax;
+            }
+        }
+    }
+
+7.12.1 What types of array can be sorted using the java.util.Arrays.sort method?
+Does this sort method create a new array?
+any type of array (except booleanS), no - it sorts a current array.
+
+7.12.2 To apply java.util.Arrays.binarySearch(array, key), should the array
+be sorted in increasing order, in decreasing order, or neither?
+should be sorted in increasing order
+
+7.12.3 Show the output of the following code:
+int[] list1 = {2, 4, 7, 10};
+java.util.Arrays.fill(list1, 7);
+System.out.println(java.util.Arrays.toString(list1));
+
+7, 7, 7, 7
+
+int[] list2 = {2, 4, 7, 10};
+System.out.println(java.util.Arrays.toString(list2));
+System.out.print(java.util.Arrays.equals(list1, list2));
+
+[2, 4, 7, 10]
+false
+
+
+7.13.1 This book declares the main method as
+public static void main(String[] args)
+Can it be replaced by one of the following lines?
+a. public static void main(String args[]) --> yes
+b. public static void main(String[] x) --> yes
+c. public static void main(String x[]) --> yes
+d. static void main(String x[]) --> no
+
+7.13.2 Show the output of the following program when invoked using
+1. java Test I have a dream
+
+Number of strings is 4
+I
+have
+a
+dream
+
+2. java Test “1 2 3”
+Number of string is 1
+1 2 3
+
+3. java Test
+Number of strings is 0
+
+public class Test {
+ public static void main(String[] args) {
+ System.out.println("Number of strings is " + args.length);
+ for (int i = 0; i < args.length; i++)
+ System.out.println(args[i]);
+ }
+}

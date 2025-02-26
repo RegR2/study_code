@@ -752,7 +752,7 @@ public class Chapter3Exercises {
         double e = a * x1 - b * y1;
         double f = c * x3 - d * y3;
 
-        if (Math.abs(adbc) < 1e-10) {
+        if (adbc == 0) {
             System.out.println("The two lines are parallel");
         } else {
             double x = (e * d - b * f) / adbc;
