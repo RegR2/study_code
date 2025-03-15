@@ -1,0 +1,123 @@
+9.3.1 Describe the relationship between an object and its defining class.
+Object = entity in the real world
+contract = template, blueprint, or contract that defines what an object’s data fields and methods will be
+
+9.3.2 How do you define a class?
+public class ClassName {
+}
+
+9.3.3 How do you declare an object’s reference variable?
+ClassName v
+
+9.3.4 How do you create an object?
+Through its constructor --> new ClassName();
+
+9.4.1
+construct a new object, no return type, use the word 'new' to create the new class
+
+9.4.2
+only if no other consutrctor is explicitly defined in the class
+
+9.4.3
+a) no constructors have been defined, so trying to create a new class without consturctors
+b) doesn't match any constructors in the class
+
+9.4.4
+no default constructor has been defined - so the construcor that does exist is expecting a string ot be passed through
+
+9.5.1
+Array = object
+An array can contain elements of an object type
+Default value for elements of an array = 0 for numeric, false for boolean, '\u0000' for char, null for object element type.
+
+9.5.2
+dot operator
+
+9.5.3
+an object that hasn't been assigned to a variable
+
+9.5.4
+when trying to access a data field or method on an object with no value
+
+9.5.5
+a) x() doens't exist as a method on show errors
+b) haven't inititated C before calling the getRadius method.
+
+9.5.6
+false
+
+9.6.1
+Use the Date's no-arg constructor to create a Date for the current time. Use the Date's toString() method to display a string representation for the Dat
+
+9.6.2
+new Point2D(point1, point2);
+p1.distance(p2);
+p1.midpoint(p2)
+
+9.6.3
+Date is in the java.util package. Random is in the java.util package. Point2D is in the javafx.geometry package. System and Math are in the java.lang package.
+
+9.7.1
+System.out.println(f.i);
+System.out.println(f.s);
+f.imethod();
+f.smethod();
+System.out.println(F.s);
+F.smethod();
+
+9.7.2
+public static void main(String[] args) {
+ ...
+ }
+
+  public static int factorial(int n) {
+  int result = 1;
+  for (int i = 1; i <= n; i++)
+  result *= i;
+  return result;
+  }
+
+9.7.3
+you can't invoke an instance method or reference an instance variable from a static method
+however, you can reference a static method or reference variable from in instance method.
+
+9.9.1 accessor method = getter (retriever), mutator method (changer) - setter
+
+9.9.2 - prevents someone from tampering with the data + easier to maintain the class
+
+9.9.3 - Not a problem. Though radius is private, myCircle.radius is used inside the Circle class. Thus, it is fine.
+
+9.10.1 - passing down a primitive type is passing by the value of it, whereas passing a param of reference type is passing by the reference to that object.
+9.10.3
+a) a[0] = 1, a[1] = 2
+b) a[0] = 2, a[1] = 1
+c) e1 = 2, e2 = 1
+d) t1's i = 2 t1's j = 1
+      t2's i = 2 t2's j = 1
+
+9.10.4
+a) null
+b) whatever new Date(1234567)
+c) date.setTime(7654321);
+d) new Date(1234567)
+
+9.11.1
+no date has been set for each item in the array, so the date will be null.
+
+9.12.1 yes, as long as none of the accessor methods return a referece to a data field that is mutable
+9.12.2  yes
+9.12.3 no - because values is a reference to an array and be mutated by accessing it directly
+
+9.13.1
+i + j is 23
+k is 2
+j is 0
+
+9.14.1
+this is used to refer to the object itself
+
+9.14.2
+the constructor and the setter need to be this.p = p, otherwise its referring to the parameter p
+
+9.14.3
+Test.id = 45; This is wrong, since id is an instance member and cannot be accessed from a class.

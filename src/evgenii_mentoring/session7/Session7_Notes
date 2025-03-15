@@ -1,0 +1,4 @@
+Records --> immutable object
+- without constructors, getters or setters
+
+read about functional programming --> using mostly stream apis and no if, for each loops etc
