@@ -275,9 +275,9 @@ public class Chapter10Exercises {
             }
 
             if (intForSubstring > -1) {
-               sA[idx++] = s.substring(startSubstring, intForSubstring);
-               sA[idx++] = value;
-               startSubstring = intForSubstring + 1;
+                sA[idx++] = s.substring(startSubstring, intForSubstring);
+                sA[idx++] = value;
+                startSubstring = intForSubstring + 1;
             }
         }
 
@@ -390,7 +390,6 @@ class MyDate {
 
     public MyDate() {
         GregorianCalendar calendar = new GregorianCalendar();
-        calendar.setTimeInMillis(System.currentTimeMillis());
 
         this.year = calendar.get(GregorianCalendar.YEAR);
         this.month = calendar.get(GregorianCalendar.MONTH) + 1;
@@ -735,7 +734,4 @@ class MyStringBuilder2 {
         this.chars = newArray;
         return this;
     }
-
-    ;
-
 }
