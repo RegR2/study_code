@@ -1,0 +1,173 @@
+12.2.1 --> passed control of how to deal with an error to the calling class
+
+12.2.2
+1/0
+
+12.2.3
+Adding 1 to Long.MAX_VALUE exceeds the maximum value allowed by a long value. But the current versions of Java does not report this as an exception.
+
+12.2.4
+Java searches for a handler in the catch clause. So to catch an exception in your program, you need to write a try-catch statement like this:
+via a try/catch block
+
+12.2.5
+value is too small
+continue after the catch block
+
+value = 50 --> continue after the catch block
+
+12.2.6
+a)
+0 Exception occurred
+1 Exception occurred
+
+b)
+0 Exception occurred
+
+12.3.1
+The root of exception classes.
+Error and Exception are subclasses of Throwable.
+Error describes fatal system errors, and Exception describes the errors that can be handled by Java programs.
+The subclasses of Error are LinkageError, VirtualMachineError, and AWTError.
+The subclasses of Exception include RuntimeException, IOException, AWTException, and InstantiationException.
+
+12.3.2
+a) Arithmetic error exception
+b) Array index out of bound
+c) string index out of bound
+d) class cast exception
+e) null pointer exception
+f) no error
+
+12.3.3
+A checked exception must be explicitly declared in the method declaration, if a method throws it.
+A checked exception must be caught in a try-catch block.
+An unchecked exception does not need to be declared and does not need to be caught.
+In Java, the only unchecked exceptions are RuntimeException and Error and their subclasses.
+
+12.4.1
+The purpose of declaring exceptions is to tell the Java runtime system what can go wrong.
+You declare an exception using the throws keyword in the method declaration. You can declare multiple exceptions, separated by commas.
+
+12.4.2
+You use the throw statement in the method to throw an exception. You cannot throw multiple exceptions in a single throw statement.
+
+12.4.3
+throw is for throwing exceptions (i.e. in the method body) and throws is for claiming exceptions (i.e. declaring in the method declaration).
+
+12.4.4
+no - statement 3 won't be executed because statement 2 threw an exception.
+if the exception is not caught - statement 4 will not be executed because the program will exit because the exception was not caught
+if the exception is caught - statement 4 will be executed
+
+12.4.5
+runtime exception - because array index out of bounds is a form of a run time exception
+
+12.4.6
+arithemetic exception
+
+12.4.7
+"RuntimeException in method()"
+After the method call
+
+12.4.8
+shows the reason for the error
+
+12.4.9
+shows the stack trace for where the error can be found
+
+12.4.10
+no
+
+12.4.11
+public void m(int value) throws Exception {
+if (value < 40)
+ throw new Exception("value is too small");
+}
+
+12.5.1
+a) statement1, statement2, statement3, statement5, statement6, statement7
+b) statement1, statement2, statement4, statement5, statement6, statement7
+c) statement1, statement2, statement5
+d) statement1, statement2,, statement5
+
+12.6.1
+yes - its correct
+
+12.7.1
+a) both
+b) both
+c) 4
+d) 4
+
+12.9.1
+by extending the exception class
+
+12.9.2
+Exception in method()
+Exception in main
+
+12.10.1
+specific to windows - won't work for other operating systems
+
+12.10.2
+file.exists()
+file.delete()
+renameTo(File)
+file.length()
+fil.e.isDirectory()
+file.mkdir()
+
+12.10.3
+No - files cannot perform I/O operations
+Creating a File object does not create a file/directory on the disk
+
+12.11.1
+To create a PrintWriter for a file, use new PrintWriter(filename).
+This statement may throw an exception. Java forces you to write the code to deal with exceptions. One way to deal with it is to declare throws java.io.IOException in the method declaration.
+If the close() method is not invoked, the data may not be saved properly.
+
+12.11.2
+amount is 32.320000 3.232000e+01
+amount is 32.3200 3.2320e+01
+ false
+  Java
+
+12.11.3
+  public static void main(String[] args) throws java.io.IOException {
+  try (java.io.PrintWriter output = new java.io.PrintWriter("temp.txt");) {
+    output.printf("amount is %f %e\r\n", 32.32, 32.32);
+    output.printf("amount is %5.4f %5.4e\r\n", 32.32, 32.32);
+    output.printf("%6b\r\n", (1 > 2));
+    output.printf("%6s\r\n", "Java");
+  }
+
+12.11.4
+as per 12.11.1 just new Scanner(new File(filename))
+
+12.11.5
+If you attempt to create a Scanner for a nonexistent file, an exception will occur.
+If you attempt to create a PrintWriter for an existing file, the contents of the existing file will be gone
+
+12.11.6
+no - in windows it is \r\n and in unix its \n
+
+12.11.7
+45
+57.8
+' ', '7 ', '8 ', '9'.
+
+12.11.8
+45
+57.8
+""
+
+12.12.1
+create a url object new URL()
+new Scanner(url.openStream())
+
+12.3.1
+Yes. Possible. Suppose link1 is not in listOfTraversedURLs, but it appears more than one time in a page. Duplicate link1 will be added into listOfPendingURLs.
+
+
+

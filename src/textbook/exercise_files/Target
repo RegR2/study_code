@@ -1,0 +1,14 @@
+Hi Everyone, 
+We recently updated the way Enums are being stored in our db. 
+
+Previously - we were storing some enumerateds as ordinals in our db. This caused issues in situations where the enumerated order was changed. 
+To overcome this issue - we have changed all enumerateds to be stored as strings (using the annotation @Enumerated(EnumType.STRING)). 
+
+Please keep this in mind in future if you will be storing Enums in the DB - Enums should be stored as strings and not as ordinals (unless there is a very specific reason - please speak to Vasilii before doing so).
+
+To migrate the data - please go to SystemConfigurations in your local dashboard and hit this button. 
+This will create a temporary column and will shift all data to a column with enumerateds as strings. 
+
+Please update here once this has been done so we can implement phase b of this ticket - cleaning up the unecessary column. 
+
+Please see ticket 7687 for further details of this refactoring. If there are any questions - please feel free to reach out.

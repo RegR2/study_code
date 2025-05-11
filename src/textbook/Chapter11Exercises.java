@@ -27,7 +27,7 @@ public class Chapter11Exercises {
     }
 
     //11.1
-    private static void testTriangle() {
+    private static void testTriangle() throws IllegalTriangleException {
         Triangle triangle = new Triangle(4.0, 6.0, 5.0);
 
         System.out.println("Area = " + triangle.getArea());
@@ -485,7 +485,11 @@ class Triangle {
     public Triangle() {
     }
 
-    public Triangle(double side1, double side2, double side3) {
+    public Triangle(double side1, double side2, double side3) throws IllegalTriangleException {
+        if (side1 + side2 < side3 || side2 + side3 < side1 || side1 + side3 < side2) {
+            throw new IllegalTriangleException(side1, side2, side3);
+        }
+
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
@@ -874,7 +878,13 @@ class Loan {
      * number of years, and loan amount
      */
     public Loan(double annualInterestRate, int numberOfYears,
-                double loanAmount) {
+                double loanAmount) throws IllegalArgumentException {
+
+        if (loanAmount < 0 || numberOfYears < 0 || annualInterestRate < 0) {
+            System.out.println("Invalid parameters");
+            throw new IllegalArgumentException();
+        }
+
         this.annualInterestRate = annualInterestRate;
         this.numberOfYears = numberOfYears;
         this.loanAmount = loanAmount;
