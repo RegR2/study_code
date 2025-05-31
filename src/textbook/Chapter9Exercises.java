@@ -21,8 +21,8 @@ public class Chapter9Exercises {
 
     //9.1
     private static void getRectangleDetails() {
-        Rectangle r1 = new Rectangle(4.0, 40.0);
-        Rectangle r2 = new Rectangle(3.5, 35.9);
+        OldRectangle r1 = new OldRectangle(4.0, 40.0);
+        OldRectangle r2 = new OldRectangle(3.5, 35.9);
 
         System.out.println(r1.toString());
         System.out.println(r2.toString());
@@ -256,16 +256,16 @@ public class Chapter9Exercises {
 }
 
 
-class Rectangle {
+class OldRectangle {
     double width;
     double height;
 
-    public Rectangle() {
+    public OldRectangle() {
         this.width = 1.0;
         this.height = 1.0;
     }
 
-    public Rectangle(double width, double height) {
+    public OldRectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }

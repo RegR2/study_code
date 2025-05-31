@@ -1,0 +1,52 @@
+Design Patterns
+
+SOLID principle:
+S - Single Responsibility
+- each class and method does only one thing
+- basically a class should have only getters and setters
+- if the class has other functionality - need to make another service or class
+
+O - Open/Closed
+- related to abstracted classes
+- open for extension
+- closed for modification -->
+i.e the final class should not be changeable (i.e a public final class or sealed classes [a sealed class is a class which you can specify which other classes can extend it])
+
+L - Liskov Substitution
+- related to DRY principle/KISS principle/ YAGNI principle
+- when you're substituting a class with an abstracted class/ interface in order to reduce code repetition
+- using abstraction as much as possible
+
+I - Interface Segregation
+- if you have a large interface - break it down and instead have smaller interface.s
+
+e.g. doing this:
+
+interface Printer {
+void print();
+void fillInk();
+}
+
+interface Scanner {
+void scan();
+}
+
+interface MultiDoer extends Printer, Scanner {
+}
+
+
+instead of doing this:
+
+interface MultiDoer {
+void print();
+void scan();
+void fillInk();
+}
+
+D - Dependency Inversion
+- passing through an interface as a parameter in order to be able to use the relevant interface functionality
+(in clean Java - you can't do dependency injection, hence why this is useful (especially if that interface is implemented by other classes))
+
+
+
+You cannot call non static functions or variables in a static context

@@ -1,0 +1,23 @@
+Extends is for reading from
+- have access only to the extended classes's methods
+
+Super is for writing into
+- have access to all the methods of the the super class and their parent classes
+
+If you intend to case the Generic - you need to use a T or other class. If you're not intending to cast - then can use a wildcard
+
+If you're using a wildcard - need to either extend or super - otherwise its not considered best practice
+
+downstream --> signifies what the final data type will be
+
+as of Java 9 - if a hashmap has become imbalanced, it becomes a TreeMap autmatomatically
+
+
+Functional Interfaces:
+Supplier -> returns data from its functionality
+    - so if you're in a stream and you're passing through a supplier - you're passing through what is passing through the supplier into the stream
+Consumer -> receives data and has to do something with it
+Function ->
+
+Collectors.toMap() --> maps object to object
+Collectors.groupingBy() --> aggregates the objects

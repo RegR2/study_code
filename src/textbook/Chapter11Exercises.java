@@ -1,6 +1,5 @@
 package textbook;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Chapter11Exercises {
@@ -214,7 +213,7 @@ public class Chapter11Exercises {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter 5 strings: ");
 
-        MyStack stack = new MyStack();
+        OldMyStack stack = new OldMyStack();
 
         for (int i = 0; i < 5; i++) {
             stack.push(input.nextLine());
@@ -538,7 +537,7 @@ class Triangle {
     }
 }
 
-class GeometricObject {
+abstract class GeometricObject implements Comparable<GeometricObject> {
     private String color = "white";
     private boolean filled;
     private java.util.Date dateCreated;
@@ -595,6 +594,17 @@ class GeometricObject {
     public java.util.Date getDateCreated() {
         return dateCreated;
     }
+
+    public static GeometricObject max(GeometricObject o1, GeometricObject o2) {
+        return o1.compareTo(o2) >= 0 ? o1 : o2;
+    }
+
+    /** Abstract method getArea */
+    public abstract double getArea();
+
+    /** Abstract method getPerimeter */
+    public abstract double getPerimeter();
+
 
     /**
      * Return a string representation of this object
@@ -829,12 +839,12 @@ class SavingsAccount extends Account {
     }
 }
 
-class Course {
+class OldCourse {
     private String courseName;
     private ArrayList<String> students = new ArrayList<>();
     private int numberOfStudents;
 
-    public Course(String courseName) {
+    public OldCourse(String courseName) {
         this.courseName = courseName;
     }
 
@@ -1138,7 +1148,7 @@ class Transaction {
     }
 }
 
-class MyStack extends ArrayList {
+class OldMyStack extends ArrayList {
     public boolean isEmpty() {
         return super.isEmpty();
     }
