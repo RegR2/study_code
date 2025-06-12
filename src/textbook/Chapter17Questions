@@ -1,0 +1,113 @@
+17.2.1
+Text file -> file made of characters that can be written by a text editor
+Binary file -> file made of bytes that cannot be written by a computer program
+
+17.2.2
+Read and write data in Java via I/O classes. A stream is data passing to a from the program
+You have to use Java I/O classes to create objects and use the methods in the objects to perform I/O.
+A Java I/O object is called a stream. An object for reading data is called an input stream and an object for writing data is called an output stream.
+
+17.3.1
+Binary I/O reads a byte from a file and copies it directly to the memory with any conversion, vice versa.
+Text I/O requires encoding and decoding.
+The JVM converts a Unicode to a file specific encoding when writing a character and coverts a file specific encoding to a Unicode when reading a character.
+
+17.3.2
+Characters are represented using Unicode in the memory and characters are represented in a file using a specified encoding scheme. If no encoding scheme is specified, the system's default encoding scheme is used.
+
+17.3.3
+The values stored in the text file are 0x41 0x42 0x43.
+
+17.3.4
+If you write string "100" to an ASCII text file, the values stored are 0x31 0x30 0x30. If you write a numeric byte-type value 100 using binary I/O, the value stored in the file is 0x64.
+
+17.3.5
+The encoding scheme for representing a character in a Java program is the Unicode. By default, a text file is encoded using ASCII.
+
+17.4.1
+The value of a byte is returned as an int in the range 0 to 255.
+If no byte is available because the end of the stream has been reached, the value -1 is returned.
+The only abstract method in InputStream is read() and the only abstract method in OutputStream is write(int).
+
+17.4.2
+IOException is a checked exception. You need to declare to throw IOException in the method or use a try-catch block to handle IOException.
+
+17.4.3
+Two reasons: (1) closing a stream ensures that data will be written to the file. (2) closing a stream releases resource acquired by the stream object.
+Two ways to close a stream: 1. Invoking the close() method. 2. Using the try-catch-resource to automatically close the stream.
+
+17.4.4
+No - no new methods are inprtoduced
+created through new FileInputStream/FileOutputStream
+
+17.4.5
+YOu will get an exception
+If you try to create an ouput stream on an existing file - the data will be overwritten, unless you specifically specify for new data to be appended
+
+17.4.6
+An instance of FileInputStream can be used as an argument to construct a Scanner and an instance of FileOutputStream can be used as an argument to construct a Formatter.
+So you can create a Formatter to append text into a file using new Formatter(new FileOutputStream("temp.txt", true));
+If temp.txt does not exist, it is created. If temp.txt already exists, new data is appended to the file.
+
+17.4.7
+writeByte(91) writes one byte for number 91 (0x5B in hex, 01011011 in binary) is written to a file using FileOutputStream.
+
+17.4.8
+Since java.io.FileNotFoundException is a subclass of IOException, the catch clause for java.io.FileNotFoundException should be put before the catch clause for java.io.IOException.
+
+17.4.9
+Use a datainputstream to read the files. Use an exception to ascrtain when the file ends
+(You can use the readDouble method in the DataInputSteam to read double values and use the EOFException to detect the end of the file.)
+
+17.4.10
+the value of the byte returned will be -1
+
+17.4.14
+Since physical input and output involving I/O devices are typically very slow compared with CPU processing speeds,
+buffered input/output streams can be used to improve performance.
+You can create a buffered input stream by wrapping a BufferedInputStream/BufferedReader on any instance of InputStream/Reader,
+and create a buffered output stream by wrapping a BufferedOutputStream/BufferedWriter on any instance of BufferedOutputStream/Writer.
+All these statements are correct.
+
+17.5.1
+Using the File class to see if the file is in the place where it was specified
+
+17.5.2
+by checking if the byte value is -1
+
+17.5.3
+numberOfBytesCopied++
+
+17.6.1 yes
+
+17.6.2 Any object that implements the Serializable interface
+readObject()
+writeObject()
+Object
+
+17.6.3
+No - depending on the size of the object. I.e. could have to two arrays - but one array might be larger than the other
+
+17.6.4
+no - if the part of the object doesn't implement the Serializable interface - then there will be an error.
+statif variables aren't serialized in an object
+mark it with field transient to ignore during serialization
+
+17.6.5
+there wil be an error because class B doesn't impelement Serializable
+
+17.6.6
+Yes
+
+17.7.1
+yes - because they implement the DataInput/Output interfaces
+no - they can only read and write primitives
+
+17.7.2
+RandomAccessFile raf = new RandomAccessFile("address.dat", "rw");
+DataOutputStream outfile = new DataOutputStream(
+  new FileWriter("address.dat"));
+To create a RandomAccessFile stream, you simply use the RandomAccessFile constructor. To create a DataOutputStream, you use DataOutputStream wrapped on FileOutputStream.
+
+17.7.3
+It will compile fine, but raises a run time exception on invoking readInt() because nothing is in the file.

@@ -1,5 +1,6 @@
 package textbook;
 
+import java.io.Serializable;
 import java.util.*;
 
 public class Chapter11Exercises {
@@ -870,7 +871,7 @@ class OldCourse {
     }
 }
 
-class Loan {
+class Loan implements Serializable {
     private double annualInterestRate;
     private int numberOfYears;
     private double loanAmount;
