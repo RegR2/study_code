@@ -1,0 +1,86 @@
+18.2.1
+when a method calls on itself continuously until a break condition has been met
+infinite recursion is when no break condition has been added, so the function is called on itself contionously causing a stack overflow error
+
+18.2.2
+6
+
+18.2.3
+(a) Sum is 15 (5 + 4 + 3 + 2 + 1 = 15)
+(b) 7654321
+
+18.2.4 + 18.2.5
+f(n) = 2 if n = 1
+f(n) = 2 * 2^(n-1) for (n > 1)
+
+18.2.6
+x = = 1 if n = 1
+x = x + (n-1) for n > 1
+
+18.3.1
+a) 5 4 3 2 1
+b) 4 3 2 1
+
+18.3.2
+a) n will never be 0 - so the recursion
+b) recursive call in the constructor
+
+18.4.1
+1. is called from an if/else or a switch statement
+2. has a base case to stop the recursion
+3. repeats the same task, but each time the task gets smaller (i.e. n-1)
+
+18.4.2
+a. s.length() <= 1
+b. s.charAt(0) != s.charAt(s.length() - 1)
+c. 5
+
+18.5.1
+isPalindrome('abcba');
+isPalindrome('abcba', 0, 4);
+isPalindrome('bcb', 0, 2);
+isPalindrome('c', 0, 0);
+
+18.5.2
+sort(new double[]{2, 3, 5, 1})
+sort({2, 3, 5, 1}, 0, 3)
+sort({1, 2, 5, 3}, 2, 3)
+sort({1, 2, 3, 5}, 3, 3)
+
+18.5.3
+An overloaded method with additional parameters which is called recurisvely
+
+18.6.1
+size += file.length();
+
+18.6.2
+to get all directories -> new File(directory) --> then check if its a directory, and enter
+to get all files in a directory -> file.listFiles()
+
+18.6.3
+13
+
+18.6.4
+yes - will just return 0 because files will be null.
+
+18.6.5
+no - because files could potentially be null
+
+18.6.6
+if files ins't null - then yes
+
+18.9.1
+a) true
+b) true
+c) false
+d) true
+
+18.9.2
+when the recursion doesn't exit - so takes up too much memeory space
+
+
+
+
+
+
+
