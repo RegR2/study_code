@@ -1,0 +1,91 @@
+14.3.1
+- define by extends Application.
+- signature of start method = public void start(Stage stage)
+- primary stage is the window to holding a scene - automatically created when a JavaFX program is launched
+- disply a stage via stage.show()
+- yes, you can prevent the user from resizing the stage via stage.setResizable(false).
+- yes
+
+14.3.2
+1. launch application
+2. test constructor is invoked
+3. start method is invoked
+
+14.4.1
+- new Scene(stage, width, height)
+- stage.setScene(new Scene(stage, width, height))
+- stage.getChildren().add(circle) -> then add the stage to the scene
+
+14.4.2
+- A pane is used to hold and organize nodes
+- a node is a visual element
+- create a pane, get the children, add the pane to the children
+- no, you can directly place a shape or an image view in a scene - they need to be put into a pane first
+- yes, you can automatically put a control or pane into a scene
+
+14.4.3
+- create a circle using the new Circle() constructor
+- center the location by setting .setCenterX() and .setCenterY(). Set radius using setRadius()
+- set the stroke using .setStroke(colour) and set the fill using .setFill(colour)
+- new Pane(new Circle())
+
+14.5.1
+- a way to bind one property to another
+- A binding property is an instance of Property and a source object is an instance of ObservableValue.
+-The binding object types for int, long, float, double, and boolean are IntegerProperty, LongProperty, DoubleProperty, and BooleanProperty.
+- Integer and Double are not subtypes of ObservableValue. Hence, they cannot be used as a source object in a binding.
+
+14.5.2
+- getAge(), setAge(), getAgeProperty()
+
+14.5.3
+- no, because Integer are not subtypes of observable value. You have to use new SimpleIntegerProperty(3) to create an instance of IntegerProperty.
+- d2 = 70.2, d1 = 140.4
+- d2 = 70.2, d1 = 72.2
+
+14.5.4
+- A unidirectional binding binds a target with a source. A bidirectional binding binds two objects together. Changes in one object affects the other. Not all binding properties can be bidirectional.
+- The statement to bind d1 with d2 is d1.bindBidirectional(d2)
+
+14.6.1
+node.setStyle("-fx-border: red");
+text.setStyle("-fx-fill: red");
+
+14.6.2
+-yes
+-button.setRotate(-15);
+ node.contains(x, y);
+ node.setScaleX(2.0); // Scale x-coordinates up
+ node.setScaleX(0.2); // Scale x-coordinates down
+
+ 14.7.1
+ - create using color(r, g, b), color(r,g, b, opacity), rgb(r, g, b), and rgb(r, g, b, opacity)
+ - because values need to be between 0 and 1
+ - new Color(1, 1, 1, 1) is darker
+ - no, it returns a new colour object that is darker than the original colour invoked from
+
+ 14.7.2 new Color(Math.random(), Math.random(), Math.random(), 1)
+
+ 14.7.3
+ c.setFill(Color.BLUE)
+ c.setStyle("-fx-fill: blue")
+
+ 14.8.1
+ Font.font("Courier", FontWeight.BOLD, 20)
+
+ 14.8.2
+Font.getFontNames()
+
+14.9.1 - new Image("http://liveexample.pearsoncmg.com/book/image/us.gif");
+
+14.9.2 - new ImageView()
+
+14.9.3
+- you can set an image to multiple image views
+- you cannot display the same imageview multiple times
+
+
+
+
+
+
